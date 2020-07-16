@@ -1,0 +1,17 @@
+{
+  "name": "1337x",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build" : "npm install",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "leetxapi": "^1.1.1",
+    "torrent-search-api": "^2.1.3"
+  }
+}
