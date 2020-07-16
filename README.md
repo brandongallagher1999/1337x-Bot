@@ -23,9 +23,11 @@ torrent with its respective magnet, name and image.
 1. Download Docker for Desktop (https://www.docker.com/products/docker-desktop)
 
 ## Create Configuration File
-1. Go to root folder and create "config.txt"
+1. Go to root folder and create "config.json"
 ```
-Paste your bot token in this config.txt
+{
+  "config" : "your token goes in this string"
+}
 ```
 
 ## Container
