@@ -40,6 +40,6 @@ docker-compose up
 # Commands
 - Torrent
 ```
-?torrent <name>
+.torrent <name>
 ```
 This will return an Embed Link with relevant magnet, name and image.
