@@ -26,7 +26,7 @@ torrentApi.enableProvider("1337x");
 client.on("ready", () => {
     client.user.setPresence({
         activity : {
-            name : "FOR COMMANDS DO: ?help"
+            name : "FOR COMMANDS DO: .help"
         },
         status : "online"
     })
@@ -47,28 +47,59 @@ client.on("message", msg => {
         query += " " + string;
     });
 
-    console.log(`${msg.author.username} used command ${query}`);
+    console.log(`[${Date()}][Username: ${msg.author.username}] used query ${query}`);
 
     if (command == "torrent")
     {
-        grabTorrent(query)
-        .then(torrentObj => {
+        if (query == " cryptoguys")
+        {
             msg.channel.send(
                 new Discord.MessageEmbed()
-                    .setTitle(query)
-                    .setURL(torrentObj.torrent.desc)
-                    .setAuthor("1337x Bot")
+                    .setTitle("1337x Bot GitHub Repo")
+                    .setAuthor("Cryptoguys")
+                    .setURL("https://github.com/brandongallagher1999/1337x-Bot")
                     .addFields(
-                        { name : "Name", value: torrentObj.torrent.title, inline: false},
-                        { name : "Magnet", value : torrentObj.magnet, inline : false},
-                        { name : "Seeders", value : torrentObj.torrent.seeds, inline: false},
-                        { name: "Size", value : torrentObj.torrent.size, inline: false}
+                        {name: "Help out!", value: "Please give the repo a star! :star:"}
                     )
                     .setFooter(Date())
-            )
-        });
+            );
+        }
+        else
+        {
+            console.log(`|${query}|`);
+            grabTorrent(query)
+            .then(torrentObj => {
+                if (torrentObj.status == "okay")
+                {
+                    msg.channel.send(
+                        new Discord.MessageEmbed()
+                            .setTitle(torrentObj.torrent.title)
+                            .setURL(torrentObj.torrent.desc)
+                            .setAuthor(msg.author.username)
+                            .addFields(
+                                //{ name : "Name", value: torrentObj.torrent.title, inline: false},
+                                { name : "Magnet", value : torrentObj.magnet, inline : false},
+                                { name : "Seeders", value : torrentObj.torrent.seeds, inline: false},
+                                { name: "Size", value : torrentObj.torrent.size, inline: false}
+                            )
+                            .setFooter(Date())
+                    );
+                }
+                else
+                {
+                    msg.channel.send(
+                        new Discord.MessageEmbed()
+                            .setTitle("Not found")
+                            .setAuthor(msg.author.username)
+                            .addFields(
+                                { name : "Message", value: "Torrent not found in 1337x. Please another query."},
+                            )
+                            .setFooter(Date())
+                    );
+                }
+            });
+        }
     }
-        // 
 
     if (command == "help")
     {
@@ -81,21 +112,35 @@ client.on("message", msg => {
 
 const grabTorrent = async (torrent)=>
 {
-    let torrentObj;
-    let magnet;
-    let shortened;
+    try
+    {
+        let torrentObj;
+        let magnet;
+        let shortened;
 
-    await torrentApi.search(torrent)
-        .then(e => {
-            torrentObj = e[0]; //First object in the array of torrents
-        });
+        await torrentApi.search(torrent)
+            .then(e => {
+                torrentObj = e[0]; //First object in the array of torrents
+            });
+        
+        await torrentApi.getMagnet(torrentObj)
+            .then(mag => magnet = mag);
+
+        await shorten(magnet)
+            .then(short => shortened = short);
+
+        return {
+            "status" : "okay",
+            "torrent" : torrentObj, 
+            "magnet" : shortened,
+        };
+    } 
+    catch (error) {
+        return {
+            "status" : "not found"
+        }
+    }
     
-    await torrentApi.getMagnet(torrentObj)
-        .then(mag => magnet = mag);
-
-    await shorten(magnet)
-        .then(short => shortened = short);
-    return {"torrent" : torrentObj, "magnet" : shortened};
 }
 
 client.login(token);
