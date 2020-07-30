@@ -1,7 +1,5 @@
 ![1337x Logo](https://img.ibxk.com.br/2015/07/22/22123545851313.jpg)
 
-                                                                                Version: Release v1.0
-
 ## Github project URL
 https://github.com/brandongallagher1999/1337x-Bot/
 
@@ -41,5 +39,6 @@ docker-compose up
 - Torrent
 ```
 .torrent <name>
+.help
 ```
 This will return an Embed Link with relevant magnet, name and image.
