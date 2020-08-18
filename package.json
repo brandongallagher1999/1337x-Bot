@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "config" : "touch config.json",
     "build": "npm install",
     "start": "node index.js"
   },
