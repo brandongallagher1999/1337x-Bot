@@ -29,7 +29,7 @@ client.on("ready", () => {
     })
 });
 
-client.on("message", msg => {
+client.on("message", (msg) => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) 
     {
         return;
@@ -71,14 +71,11 @@ client.on("message", msg => {
                         new Discord.MessageEmbed()
                             .setTitle(torrentObj.torrent.title)
                             .setURL(torrentObj.torrent.desc)
-                            .setAuthor(msg.author.username)
+                            .setAuthor(`@${msg.author.username}`)
                             .addFields(
-                                //{ name : "Name", value: torrentObj.torrent.title, inline: false},
-                                { name : "Magnet", value : torrentObj.magnet, inline : false},
-                                { name : "Seeders", value : torrentObj.torrent.seeds, inline: false},
+                                { name : "Magnet | Seeders", value : `${torrentObj.magnet} | ${torrentObj.torrent.seeds}`, inline : false},
                                 { name: "Size", value : torrentObj.torrent.size, inline: false}
                             )
-                            .setFooter(Date())
                     );
                 }
                 else
