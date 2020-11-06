@@ -5,30 +5,63 @@ torrentApi.enableProvider("1337x");
 const urlencode = require("urlencode");
 const fetch = require("node-fetch");
 
-const grabTorrent = async (torrent)=>
+/*
+
+    Returns a list of up to 5 torrent objects with their relevant properties.
+
+    @param {string} torrent The query made from the user
+
+*/
+const grabTorrents = async (torrent)=>
 {
     try
     {
-        let torrentObj;
-        let magnet;
-        let shortened;
+
+        let tempArr = []; // length 3 of type <torrent>
+        let torrentArray = []; // serializing the <torrent> objects into array of objects
 
         await torrentApi.search(torrent)
-            .then(e => {
-                torrentObj = e[0]; //First object in the array of torrents
+            .then(e => { //e is an array of type <torrent>
+
+                for (let i = 0; i < 3; i++)
+                {
+                    if (!(typeof e[i] === "undefined"))
+                    {
+                        tempArr.push(e[i]);
+                    }
+                    
+                }
+                //torrentObj = e[0]; //First object in the array of torrents
             });
         
-        await torrentApi.getMagnet(torrentObj)
-            .then(mag => magnet = mag);
+        
 
-        await shorten(magnet)
-            .then(short => shortened = short);
+        for (let i = 0; i < tempArr.length; i++)
+        {
+            await torrentApi.getMagnet(tempArr[i])
+            .then(obj => {
+                torrentArray.push({
+                    number : i+1,
+                    title : tempArr[i].title,
+                    desc : tempArr[i].desc,
+                    size : tempArr[i].size,
+                    seeds : tempArr[i].seeds,
+                    magnet : obj
+                });
+            });
+        }
 
-        return {
-            "status" : "okay",
-            "torrent" : torrentObj, 
-            "magnet" : shortened,
-        };
+        for (let i = 0; i < torrentArray.length; i++)
+        {
+            await shorten(torrentArray[i].magnet)
+            .then(obj =>{
+                torrentArray[i].magnet = obj;
+            });
+        }
+
+        console.log(torrentArray);
+        return torrentArray;
+        
     } 
     catch (error) {
         return {
@@ -77,5 +110,5 @@ const shorten = async (magnet) =>
 
 module.exports = {
     shorten,
-    grabTorrent
+    grabTorrents
 }

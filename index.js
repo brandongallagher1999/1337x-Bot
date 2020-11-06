@@ -18,12 +18,13 @@ const client = new Discord.Client();
 const prefix = ".";
 
 const torrent_module = require("./modules/torrent");
+const torrent = require("./modules/torrent");
 
 
 client.on("ready", () => {
     client.user.setPresence({
         activity : {
-            name : "FOR COMMANDS DO: .help"
+            name : "FOR COMMANDS DO: .help\n To star the repo, do .torrent cryptoguys"
         },
         status : "online"
     })
@@ -63,20 +64,36 @@ client.on("message", (msg) => {
         }
         else
         {
-            torrent_module.grabTorrent(query)
-            .then(torrentObj => {
-                if (torrentObj.status == "okay")
+            torrent_module.grabTorrents(query)
+            .then(torrentArray => {
+
+                if (torrentArray.length > 0)
                 {
-                    msg.channel.send(
-                        new Discord.MessageEmbed()
-                            .setTitle(torrentObj.torrent.title)
-                            .setURL(torrentObj.torrent.desc)
-                            .setAuthor(`@${msg.author.username}`)
-                            .addFields(
-                                { name : "Magnet | Seeders", value : `${torrentObj.magnet} | ${torrentObj.torrent.seeds}`, inline : false},
-                                { name: "Size", value : torrentObj.torrent.size, inline: false}
-                            )
-                    );
+                    let torrentList = new Discord.MessageEmbed();
+                    torrentList.setAuthor(`@${msg.author.username}`);
+                    torrentArray.map((torrent) => {
+                        torrentList.addFields(
+                            { name : `${torrent.number}. ${torrent.title}`, value : `Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
+                        )
+                    });
+                    msg.channel.send(torrentList); //Send them the list of torrents in the channel
+
+                    const collector = new Discord.MessageCollector(msg.channel, (m) => m.author.id === msg.author.id, { time: 10000 });
+                    collector.on('collect', (message) => {
+                        const index = parseInt(message)-1;
+                        if (index > 0 && index < torrentArray.length)
+                        {
+                            msg.channel.send(
+                                new Discord.MessageEmbed()
+                                    .setTitle(torrentArray[index].title)
+                                    .setURL(torrentArray[index].desc)
+                                    .setAuthor(`@${msg.author.username}`)
+                                    .addFields(
+                                        { name : "Magnet", value : torrentArray[index].magnet, inline : false},
+                                    )
+                            );
+                        }
+                    });
                 }
                 else
                 {
@@ -90,6 +107,7 @@ client.on("message", (msg) => {
                             .setFooter(Date())
                     );
                 }
+                
             });
         }
     }
