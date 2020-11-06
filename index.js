@@ -78,7 +78,7 @@ client.on("message", (msg) => {
                     });
                     msg.channel.send(torrentList); //Send them the list of torrents in the channel
 
-                    const collector = new Discord.MessageCollector(msg.channel, (m) => m.author.id === msg.author.id, { time: 10000 });
+                    const collector = new Discord.MessageCollector(msg.channel, (m) => m.author.id === msg.author.id, { time: 50000 });
                     collector.on('collect', (message) => {
                         const index = parseInt(message)-1;
                         if (index > 0 && index < torrentArray.length)
@@ -92,6 +92,7 @@ client.on("message", (msg) => {
                                         { name : "Magnet", value : torrentArray[index].magnet, inline : false},
                                     )
                             );
+                            collector.stop();
                         }
                     });
                 }

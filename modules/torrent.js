@@ -58,8 +58,6 @@ const grabTorrents = async (torrent)=>
                 torrentArray[i].magnet = obj;
             });
         }
-
-        console.log(torrentArray);
         return torrentArray;
         
     } 
