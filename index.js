@@ -73,28 +73,12 @@ client.on("message", (msg) => {
                     torrentList.setAuthor(`@${msg.author.username}`);
                     torrentArray.map((torrent) => {
                         torrentList.addFields(
-                            { name : `${torrent.number}. ${torrent.title}`, value : `Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
+                            { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
                         )
                     });
                     msg.channel.send(torrentList); //Send them the list of torrents in the channel
 
-                    const collector = new Discord.MessageCollector(msg.channel, (m) => m.author.id === msg.author.id, { time: 50000 });
-                    collector.on('collect', (message) => {
-                        const index = parseInt(message)-1;
-                        if (index > 0 && index < torrentArray.length)
-                        {
-                            msg.channel.send(
-                                new Discord.MessageEmbed()
-                                    .setTitle(torrentArray[index].title)
-                                    .setURL(torrentArray[index].desc)
-                                    .setAuthor(`@${msg.author.username}`)
-                                    .addFields(
-                                        { name : "Magnet", value : torrentArray[index].magnet, inline : false},
-                                    )
-                            );
-                            collector.stop();
-                        }
-                    });
+                    
                 }
                 else
                 {
