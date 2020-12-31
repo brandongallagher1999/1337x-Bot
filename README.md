@@ -1,4 +1,5 @@
 ![1337x Logo](https://img.ibxk.com.br/2015/07/22/22123545851313.jpg)
+[![Discord](https://img.shields.io/discord/702220357834244248.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/AtecbFZPZv)
 
 ## Github project URL
 https://github.com/brandongallagher1999/1337x-Bot/
