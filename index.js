@@ -49,57 +49,52 @@ client.on("message", (msg) => {
 
     if (command == "torrent")
     {
-        if (query == " cryptoguys")
-        {
-            msg.channel.send(
-                new Discord.MessageEmbed()
-                    .setTitle("1337x Bot GitHub Repo")
-                    .setAuthor("Cryptoguys")
-                    .setURL("https://github.com/brandongallagher1999/1337x-Bot")
-                    .addFields(
-                        {name: "Help out!", value: "Please give the repo a star! :star:"}
+        torrent_module.grabTorrents(query)
+        .then(torrentArray => {
+
+            if (torrentArray.length > 0)
+            {
+                let torrentList = new Discord.MessageEmbed();
+                torrentList.setAuthor(`@${msg.author.username}`);
+                torrentArray.map((torrent) => {
+                    torrentList.addFields(
+                        { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
                     )
-                    .setFooter(Date())
-            );
-        }
-        else
-        {
-            torrent_module.grabTorrents(query)
-            .then(torrentArray => {
+                });
+                msg.channel.send(torrentList); //Send them the list of torrents in the channel
 
-                if (torrentArray.length > 0)
-                {
-                    let torrentList = new Discord.MessageEmbed();
-                    torrentList.setAuthor(`@${msg.author.username}`);
-                    torrentArray.map((torrent) => {
-                        torrentList.addFields(
-                            { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
-                        )
-                    });
-                    msg.channel.send(torrentList); //Send them the list of torrents in the channel
-
-                    
-                }
-                else
-                {
-                    msg.channel.send(
-                        new Discord.MessageEmbed()
-                            .setTitle("Not found")
-                            .setAuthor(msg.author.username)
-                            .addFields(
-                                { name : "Message", value: "Torrent not found in 1337x. Please another query."},
-                            )
-                            .setFooter(Date())
-                    );
-                }
                 
-            });
-        }
+            }
+            else
+            {
+                msg.channel.send(
+                    new Discord.MessageEmbed()
+                        .setTitle("Not found")
+                        .setAuthor(msg.author.username)
+                        .addFields(
+                            { name : "Message", value: "Torrent not found in 1337x. Please another query."},
+                        )
+                        .setFooter(Date())
+                );
+            }
+            
+        });
+        
     }
 
-    if (command == "help")
+    else if (command == "help")
     {
-        msg.channel.send("``` .torrent <torrent name> \n .torrent The Witcher 3 Wild Hunt```");
+        msg.channel.send("``` .torrent <torrent name> //IE: .torrent The Witcher 3 Wild Hunt \n .invite //the invite link to the discord bot```");
+    }
+
+    else if (command == "invite")
+    {
+        msg.channel.send(
+            new Discord.MessageEmbed()
+                .setTitle("1337x Bot Invite")
+                .setAuthor(msg.author.username)
+                .setURL("https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot")
+        );
     }
     
     
