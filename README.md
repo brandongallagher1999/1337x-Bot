@@ -40,7 +40,13 @@ docker-compose up
 # Commands
 - Torrent
 ```
-.torrent <name>
+// To find a torrent
+.torrent <query>
+
+// For help
 .help
+
+// To invite
+.invite
 ```
 This will return an Embed Link with relevant magnet, name and image.
