@@ -1,6 +1,10 @@
+import { FinalTorrent } from "./types";
+
 //1337x Torrent API
 const torrentApi = require("torrent-search-api");
 torrentApi.enableProvider("1337x");
+
+
 
 const urlencode = require("urlencode");
 const fetch = require("node-fetch");
@@ -12,16 +16,16 @@ const fetch = require("node-fetch");
     @param {string} torrent The query made from the user
 
 */
-const grabTorrents = async (torrent)=>
+const grabTorrents = async (torrent: string)=>
 {
     try
     {
 
-        let tempArr = []; // length 3 of type <torrent>
-        let torrentArray = []; // serializing the <torrent> objects into array of objects
+        let tempArr: FinalTorrent[] = []; // length 3 of type <torrent>
+        let torrentArray: FinalTorrent[] = []; // serializing the <torrent> objects into array of objects
 
         await torrentApi.search(torrent)
-            .then(e => { //e is an array of type <torrent>
+            .then((e: FinalTorrent[]) => { //e is an array of type <torrent>
 
                 for (let i = 0; i < 3; i++)
                 {
@@ -39,7 +43,7 @@ const grabTorrents = async (torrent)=>
         for (let i = 0; i < tempArr.length; i++)
         {
             await torrentApi.getMagnet(tempArr[i])
-            .then(obj => {
+            .then((obj: string) => {
                 torrentArray.push({
                     number : i+1,
                     title : tempArr[i].title,
@@ -69,7 +73,7 @@ const grabTorrents = async (torrent)=>
     
 }
 
-const shorten = async (magnet) =>
+const shorten = async (magnet: string) =>
 {
     let shortened;
     try
@@ -88,10 +92,10 @@ const shorten = async (magnet) =>
             "method": "GET",
             "mode": "cors"
           })
-          .then(res => {
+          .then((res: Body) => {
               return res.text();
           })
-          .then(data => {
+          .then((data: string) => {
               let obj = JSON.parse(data);
               shortened = obj.shorturl;
           });

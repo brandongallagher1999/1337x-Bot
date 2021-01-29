@@ -5,8 +5,11 @@ Version: V2.0
 Description: NodeJS Discord Bot that uses the 1337x API to grab relevant torrents.
 */
 
+import { Message } from "discord.js";
+import { FinalTorrent} from "./modules/types";
+
 //Config Stuff
-const config = require("./config.json");
+const config = require("../config.json");
 const token = config.token;
 
 
@@ -30,13 +33,13 @@ client.on("ready", () => {
     })
 });
 
-client.on("message", (msg) => {
+client.on("message", (msg: Message) => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) 
     {
         return;
     }
-    const args = msg.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+    const args: string[] = msg.content.slice(prefix.length).trim().split(/ +/);
+    const command: string = args.shift().toLowerCase();
 
 
 
@@ -50,7 +53,7 @@ client.on("message", (msg) => {
     if (command == "torrent")
     {
         torrent_module.grabTorrents(query)
-        .then(torrentArray => {
+        .then((torrentArray: FinalTorrent[]) => {
 
             if (torrentArray.length > 0)
             {

@@ -4,16 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "config" : "touch config.json",
+    "config": "touch config.json",
     "build": "npm install",
-    "start": "node index.js"
+    "start": "node dist/index.js",
+    "tsc" : "tsc -p tsconfig.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
-    "node-fetch": "^2.6.0",
-    "urlencode": "^1.1.0",
-    "torrent-search-api": "^2.1.3"
+    "@types/torrent-search-api": "^2.0.0",
+    "discord.js": "^12.5.1",
+    "node-fetch": "^2.6.1",
+    "torrent-search-api": "^2.1.3",
+    "urlencode": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.22"
   }
 }
