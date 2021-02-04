@@ -52,6 +52,22 @@ client.on("message", (msg: Message) => {
 
     if (command == "torrent")
     {
+        if (query == " cryptoguys")
+        {
+            msg.channel.send(
+                new Discord.MessageEmbed()
+                    .setTitle("1337x Bot GitHub Repo")
+                    .setAuthor("Cryptoguys")
+                    .setURL("https://github.com/brandongallagher1999/1337x-Bot")
+                    .addFields(
+                        {name: "Help out!", value: "Please give the repo a star! :star:"}
+                    )
+                    .setFooter(Date())
+            );
+        }
+        else
+        {
+
         torrent_module.grabTorrents(query)
         .then((torrentArray: FinalTorrent[]) => {
 
@@ -82,6 +98,7 @@ client.on("message", (msg: Message) => {
             }
             
         });
+    }
         
     }
 
