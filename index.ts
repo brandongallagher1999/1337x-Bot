@@ -65,6 +65,8 @@ client.on("message", (msg: Message) => {
                     .setFooter(Date())
             );
         }
+        else
+        {
 
         torrent_module.grabTorrents(query)
         .then((torrentArray: FinalTorrent[]) => {
@@ -96,6 +98,7 @@ client.on("message", (msg: Message) => {
             }
             
         });
+    }
         
     }
 
