@@ -20,13 +20,13 @@ const grabTorrents = async (torrent: string)=>
 {
     try
     {
-
+        console.log("final torrent is:");
         let tempArr: FinalTorrent[] = []; // length 3 of type <torrent>
         let torrentArray: FinalTorrent[] = []; // serializing the <torrent> objects into array of objects
 
         await torrentApi.search(torrent)
             .then((e: FinalTorrent[]) => { //e is an array of type <torrent>
-
+                
                 for (let i = 0; i < 3; i++)
                 {
                     if (!(typeof e[i] === "undefined"))

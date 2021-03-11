@@ -27,7 +27,7 @@ const torrent = require("./modules/torrent");
 client.on("ready", () => {
     client.user.setPresence({
         activity : {
-            name : "FOR COMMANDS DO: .help\n To star the repo, do .torrent cryptoguys"
+            name : ".help | .invite | .torrent cryptoguys"
         },
         status : "online"
     })
@@ -52,22 +52,6 @@ client.on("message", (msg: Message) => {
 
     if (command == "torrent")
     {
-        if (query == " cryptoguys")
-        {
-            msg.channel.send(
-                new Discord.MessageEmbed()
-                    .setTitle("1337x Bot GitHub Repo")
-                    .setAuthor("Cryptoguys")
-                    .setURL("https://github.com/brandongallagher1999/1337x-Bot")
-                    .addFields(
-                        {name: "Help out!", value: "Please give the repo a star! :star:"}
-                    )
-                    .setFooter(Date())
-            );
-        }
-        else
-        {
-
         torrent_module.grabTorrents(query)
         .then((torrentArray: FinalTorrent[]) => {
 
@@ -98,10 +82,21 @@ client.on("message", (msg: Message) => {
             }
             
         });
-    }
         
     }
-
+    else if (command == "github")
+    {
+        msg.channel.send(
+            new Discord.MessageEmbed()
+                .setTitle("1337x Bot GitHub Repo")
+                .setAuthor("Cryptoguys")
+                .setURL("https://github.com/brandongallagher1999/1337x-Bot")
+                .addFields(
+                    {name: "Help out!", value: "Please give the repo a star! :star:"}
+                )
+                .setFooter(Date())
+        );
+    }
     else if (command == "help")
     {
         msg.channel.send("``` .torrent <torrent name> //IE: .torrent The Witcher 3 Wild Hunt \n .invite //the invite link to the discord bot```");

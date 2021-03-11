@@ -7,7 +7,7 @@
     "config": "touch config.json",
     "build": "npm install",
     "start": "node dist/index.js",
-    "tsc" : "tsc -p tsconfig.json"
+    "tsc": "tsc -p tsconfig.json"
   },
   "author": "",
   "license": "ISC",
