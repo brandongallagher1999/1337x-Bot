@@ -27,7 +27,7 @@ const torrent = require("./modules/torrent");
 client.on("ready", () => {
     client.user.setPresence({
         activity : {
-            name : ".help | .invite | .torrent cryptoguys"
+            name : ".help | .invite | .github"
         },
         status : "online"
     })
