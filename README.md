@@ -48,5 +48,8 @@ docker-compose up
 
 // To invite
 .invite
+
+// To get the GitHub link
+.github
 ```
 This will return an Embed Link with relevant magnet, name and image.
