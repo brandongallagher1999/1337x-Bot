@@ -38,7 +38,7 @@ docker-compose up
 ```
   
 # Commands
-- Torrent
+
 ```
 // To find a torrent
 .torrent <query>
@@ -52,4 +52,3 @@ docker-compose up
 // To get the GitHub link
 .github
 ```
-This will return an Embed Link with relevant magnet, name and image.
