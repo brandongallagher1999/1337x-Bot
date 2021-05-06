@@ -1,7 +1,7 @@
 {
   "name": "1337x",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Discord bot that uses the 1337x API to gather the most relevant torrents and then send it to the user.",
   "main": "index.js",
   "scripts": {
     "config": "touch config.json",
@@ -9,7 +9,7 @@
     "start": "node dist/index.js",
     "tsc": "tsc -p tsconfig.json"
   },
-  "author": "",
+  "author": "Brandon Gallagher",
   "license": "ISC",
   "dependencies": {
     "@types/torrent-search-api": "^2.0.0",

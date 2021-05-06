@@ -16,7 +16,7 @@ const fetch = require("node-fetch");
     @param {string} torrent The query made from the user
 
 */
-const grabTorrents = async (torrent: string)=>
+const grabTorrents = (torrent: string)=>
 {
     try
     {
@@ -24,7 +24,7 @@ const grabTorrents = async (torrent: string)=>
         let tempArr: FinalTorrent[] = []; // length 3 of type <torrent>
         let torrentArray: FinalTorrent[] = []; // serializing the <torrent> objects into array of objects
 
-        await torrentApi.search(torrent)
+        torrentApi.search(torrent)
             .then((e: FinalTorrent[]) => { //e is an array of type <torrent>
                 
                 for (let i = 0; i < 3; i++)
@@ -42,7 +42,7 @@ const grabTorrents = async (torrent: string)=>
 
         for (let i = 0; i < tempArr.length; i++)
         {
-            await torrentApi.getMagnet(tempArr[i])
+            torrentApi.getMagnet(tempArr[i])
             .then((obj: string) => {
                 torrentArray.push({
                     number : i+1,
@@ -57,8 +57,8 @@ const grabTorrents = async (torrent: string)=>
 
         for (let i = 0; i < torrentArray.length; i++)
         {
-            await shorten(torrentArray[i].magnet)
-            .then(obj =>{
+            shorten(torrentArray[i].magnet)
+            .then((obj: string) =>{
                 torrentArray[i].magnet = obj;
             });
         }
@@ -73,13 +73,13 @@ const grabTorrents = async (torrent: string)=>
     
 }
 
-const shorten = async (magnet: string) =>
+const shorten = (magnet: string) =>
 {
     let shortened;
     try
     {
         let encoded = urlencode(magnet);
-        let query = await fetch(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}&_=1595006240839`, {
+        return fetch(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}&_=1595006240839`, {
             "headers": {
               "accept": "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01",
               "accept-language": "en-US,en;q=0.9",
@@ -100,7 +100,7 @@ const shorten = async (magnet: string) =>
               shortened = obj.shorturl;
           });
 
-        return await Promise.resolve(shortened);
+        
     }
     catch(err)
     {
