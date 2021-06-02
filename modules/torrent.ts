@@ -16,15 +16,14 @@ const fetch = require("node-fetch");
     @param {string} torrent The query made from the user
 
 */
-const grabTorrents = (torrent: string)=>
+const grabTorrents = async (torrent: string) =>
 {
     try
     {
-        console.log("final torrent is:");
         let tempArr: FinalTorrent[] = []; // length 3 of type <torrent>
         let torrentArray: FinalTorrent[] = []; // serializing the <torrent> objects into array of objects
 
-        torrentApi.search(torrent)
+        await torrentApi.search(torrent)
             .then((e: FinalTorrent[]) => { //e is an array of type <torrent>
                 
                 for (let i = 0; i < 3; i++)
@@ -42,7 +41,7 @@ const grabTorrents = (torrent: string)=>
 
         for (let i = 0; i < tempArr.length; i++)
         {
-            torrentApi.getMagnet(tempArr[i])
+            await torrentApi.getMagnet(tempArr[i])
             .then((obj: string) => {
                 torrentArray.push({
                     number : i+1,
@@ -57,7 +56,7 @@ const grabTorrents = (torrent: string)=>
 
         for (let i = 0; i < torrentArray.length; i++)
         {
-            shorten(torrentArray[i].magnet)
+            await shorten(torrentArray[i].magnet)
             .then((obj: string) =>{
                 torrentArray[i].magnet = obj;
             });
@@ -66,51 +65,43 @@ const grabTorrents = (torrent: string)=>
         
     } 
     catch (error) {
-        return {
-            "status" : "not found"
-        }
+        console.log(error);
+        return [];
     }
     
 }
 
-const shorten = (magnet: string) =>
+const shorten = async (magnet: string) =>
 {
-    let shortened;
     try
     {
         let encoded = urlencode(magnet);
-        return fetch(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}&_=1595006240839`, {
-            "headers": {
-              "accept": "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01",
-              "accept-language": "en-US,en;q=0.9",
-              "x-requested-with": "XMLHttpRequest",
-              "cookie": "NSHcookie=20111006b0a72d26c6f0003"
-            },
-            "referrer": "http://mgnet.me/",
-            "referrerPolicy": "no-referrer-when-downgrade",
-            "body": null,
-            "method": "GET",
-            "mode": "cors"
-          })
-          .then((res: Body) => {
-              return res.text();
-          })
-          .then((data: string) => {
-              let obj = JSON.parse(data);
-              shortened = obj.shorturl;
-          });
-
+        const resp = await fetch(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}`, {
+        "headers": {
+            "accept": "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01",
+            "accept-language": "en-US,en;q=0.9",
+            "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": "http://mgnet.me/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": null,
+        "method": "GET",
+        "mode": "cors"
+        });
+        const text = await resp.text();
+        const json = JSON.parse(text);
+        return json.shorturl;
         
     }
     catch(err)
     {
-        throw err;
+        console.log(err);
     }
 
     
 }
 
-module.exports = {
+export {
     shorten,
     grabTorrents
 }

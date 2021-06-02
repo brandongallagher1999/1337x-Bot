@@ -9,8 +9,7 @@ import { Message } from "discord.js";
 import { FinalTorrent} from "./modules/types";
 
 //Config Stuff
-const config = require("../config.json");
-const token = config.token;
+import { token } from "./config.json";
 
 
 //Discord Stuff
@@ -21,7 +20,7 @@ const client = new Discord.Client();
 const prefix = ".";
 
 //Torrent Module
-const torrent_module = require("./modules/torrent");
+import {grabTorrents} from "./modules/torrent";
 
 
 //Start-up event
@@ -35,7 +34,7 @@ client.on("ready", () => {
 });
 
 // Message in chat event
-client.on("message", (msg: Message) => {
+client.on("message", async (msg: Message) => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) 
     {
         return;
@@ -56,36 +55,34 @@ client.on("message", (msg: Message) => {
     switch(command)
     {
         case "torrent":
-            torrent_module.grabTorrents(query)
-            .then((torrentArray: FinalTorrent[]) => {
+            const torrentArray: FinalTorrent[] = await grabTorrents(query);
 
-                if (torrentArray.length > 0)
-                {
-                    let torrentList = new Discord.MessageEmbed();
-                    torrentList.setAuthor(`@${msg.author.username}`);
-                    torrentArray.map((torrent) => {
-                        torrentList.addFields(
-                            { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
-                        )
-                    });
-                    msg.channel.send(torrentList); //Send them the list of torrents in the channel
+            if (torrentArray.length > 0)
+            {
+                let torrentList = new Discord.MessageEmbed();
+                torrentList.setAuthor(`@${msg.author.username}`);
+                torrentArray.map((torrent) => {
+                    torrentList.addFields(
+                        { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
+                    )
+                });
+                msg.channel.send(torrentList); //Send them the list of torrents in the channel
 
-                    
-                }
-                else
-                {
-                    msg.channel.send(
-                        new Discord.MessageEmbed()
-                            .setTitle("Not found")
-                            .setAuthor(msg.author.username)
-                            .addFields(
-                                { name : "Message", value: "Torrent not found in 1337x. Please another query."},
-                            )
-                            .setFooter(Date())
-                    );
-                }
                 
-            });
+            }
+            else
+            {
+                msg.channel.send(
+                    new Discord.MessageEmbed()
+                        .setTitle("Not found")
+                        .setAuthor(msg.author.username)
+                        .addFields(
+                            { name : "Message", value: "Torrent not found in 1337x. Please another query."},
+                        )
+                        .setFooter(Date())
+                );
+            }
+            
             break;
 
         case "github":
@@ -120,3 +117,5 @@ client.on("message", (msg: Message) => {
 });
 
 client.login(token);
+
+export {};
