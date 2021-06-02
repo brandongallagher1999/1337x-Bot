@@ -49,7 +49,7 @@ client.on("message", async (msg: Message) => {
         query += " " + string;
     });
 
-    console.log(`[${Date()}][Username: ${msg.author.username}] used query ${query}`);
+    //console.log(`[${Date()}][Username: ${msg.author.username}] used query ${query}`);
 
 
     switch(command)

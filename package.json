@@ -12,9 +12,10 @@
   "author": "Brandon Gallagher",
   "license": "ISC",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/torrent-search-api": "^2.0.0",
+    "axios": "^0.21.1",
     "discord.js": "^12.5.3",
-    "node-fetch": "^2.6.1",
     "torrent-search-api": "^2.1.4",
     "urlencode": "^1.1.0"
   },

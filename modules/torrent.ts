@@ -8,6 +8,7 @@ torrentApi.enableProvider("1337x");
 
 const urlencode = require("urlencode");
 const fetch = require("node-fetch");
+import axios from "axios";
 
 /*
 
@@ -76,21 +77,9 @@ const shorten = async (magnet: string) =>
     try
     {
         let encoded = urlencode(magnet);
-        const resp = await fetch(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}`, {
-        "headers": {
-            "accept": "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01",
-            "accept-language": "en-US,en;q=0.9",
-            "x-requested-with": "XMLHttpRequest"
-        },
-        "referrer": "http://mgnet.me/",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": null,
-        "method": "GET",
-        "mode": "cors"
-        });
-        const text = await resp.text();
-        const json = JSON.parse(text);
-        return json.shorturl;
+        const resp = await axios.get(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}`);
+        const data = await resp.data;
+        return data.shorturl;
         
     }
     catch(err)

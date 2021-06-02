@@ -1,4 +1,4 @@
-FROM sandrokeil/typescript:latest
+FROM node:latest
 
 COPY . .
 
@@ -7,7 +7,8 @@ EXPOSE 443
 
 
 RUN npm install
-RUN npm run tsc
+RUN npm install typescript -g
+RUN tsc
 
 WORKDIR /dist/
 
