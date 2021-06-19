@@ -10,13 +10,12 @@ const urlencode = require("urlencode");
 const fetch = require("node-fetch");
 import axios from "axios";
 
-/*
 
-    Returns a list of up to 5 torrent objects with their relevant properties.
-
-    @param {string} torrent The query made from the user
-
-*/
+/**
+ * 
+ * @param {string} torrent The torrent query string
+ * @returns {Promise<FinalTorrent[]>} FinalTorrent[]
+ */
 const grabTorrents = async (torrent: string) =>
 {
     try
@@ -58,7 +57,7 @@ const grabTorrents = async (torrent: string) =>
         for (let i = 0; i < torrentArray.length; i++)
         {
             await shorten(torrentArray[i].magnet)
-            .then((obj: string) =>{
+            .then((obj: string) => {
                 torrentArray[i].magnet = obj;
             });
         }
@@ -66,12 +65,17 @@ const grabTorrents = async (torrent: string) =>
         
     } 
     catch (error) {
-        console.log(error);
+        console.log("Hmmmm");
         return [];
     }
     
 }
 
+/**
+ * 
+ * @param {string} magnet
+ * @returns {string} shorturl string
+ */
 const shorten = async (magnet: string) =>
 {
     try
