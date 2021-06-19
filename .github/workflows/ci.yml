@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
 
       - name: Install npm packages
-        run: npm build
+        run: npm ci
       - name: tsc
         run: npm run ts-node index.ts
       - name: Test Files
