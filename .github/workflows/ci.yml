@@ -22,7 +22,7 @@ jobs:
 
       - name: Install npm packages
         run: npm build
-      - name: Compile TypeScript Files
-        run: npm tsc
+      - name: tsc
+        uses: icrawl/action-tsc@v1
       - name: Test Files
         run: npm test
