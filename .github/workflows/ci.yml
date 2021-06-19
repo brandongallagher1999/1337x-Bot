@@ -23,6 +23,6 @@ jobs:
       - name: Install npm packages
         run: npm build
       - name: tsc
-        run: npm run tsc
+        run: ts-node index.ts
       - name: Test Files
         run: npm test
