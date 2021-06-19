@@ -22,8 +22,6 @@ jobs:
 
       - name: Install npm packages
         run: npm build
-      - name: Install Typescript
-        run: npm install typescript -g
       - name: Compile TypeScript Files
         run: npm tsc
       - name: Test Files
