@@ -13,7 +13,6 @@
   "author": "Brandon Gallagher",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^15.12.4",
     "@types/axios": "^0.14.0",
     "@types/torrent-search-api": "^2.0.0",
     "axios": "^0.21.1",

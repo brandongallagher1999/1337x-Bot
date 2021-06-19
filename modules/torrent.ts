@@ -1,12 +1,14 @@
 import { FinalTorrent } from "./types";
 
 //1337x Torrent API
+//@ts-ignore
 const torrentApi = require("torrent-search-api");
 torrentApi.enableProvider("1337x");
 
 
-
+//@ts-ignore
 const urlencode = require("urlencode");
+//@ts-ignore
 const fetch = require("node-fetch");
 import axios from "axios";
 
