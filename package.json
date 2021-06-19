@@ -5,16 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "config": "touch config.json",
     "build": "npm install",
-    "start": "node dist/index.js",
-    "tsc": "tsc -p tsconfig.json"
+    "start": "node dist/index.js"
   },
   "author": "Brandon Gallagher",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^15.12.4",
     "@types/axios": "^0.14.0",
+    "@types/node": "^15.12.4",
     "@types/torrent-search-api": "^2.0.0",
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
@@ -24,6 +22,7 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^15.12.4"
+    "@types/node": "^15.12.4",
+    "ts-node": "^10.0.0"
   }
 }
