@@ -23,6 +23,6 @@ jobs:
       - name: Install npm packages
         run: npm build
       - name: tsc
-        uses: icrawl/action-tsc@v1
+        run: npm run tsc
       - name: Test Files
         run: npm test
