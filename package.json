@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "npm install",
-    "start": "node dist/index.js"
+    "compile": "tsc"
   },
   "author": "Brandon Gallagher",
   "license": "ISC",
