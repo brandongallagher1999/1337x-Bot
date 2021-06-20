@@ -1,8 +1,6 @@
-export interface FinalTorrent {
-    number : number
-    title : string,
-    desc : string,
-    size : string,
-    seeds : number,
-    magnet : string
+import { Torrent } from "torrent-search-api";
+
+export interface FinalTorrent extends Torrent {
+    number? : number;
+    seeds? : number;
 }

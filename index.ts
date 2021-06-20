@@ -5,7 +5,7 @@ Version: V2.0
 Description: NodeJS Discord Bot that uses the 1337x API to grab relevant torrents.
 */
 
-let token: string;
+let token: string; //empty login token, initially.
 
 import { Message } from "discord.js";
 import { FinalTorrent} from "./modules/types";
@@ -57,8 +57,6 @@ client.on("message", async (msg: Message) => {
         query += " " + string;
     });
 
-    //console.log(`[${Date()}][Username: ${msg.author.username}] used query ${query}`);
-
 
     switch(command)
     {
@@ -69,7 +67,7 @@ client.on("message", async (msg: Message) => {
             {
                 let torrentList = new Discord.MessageEmbed();
                 torrentList.setAuthor(`@${msg.author.username}`);
-                torrentArray.map((torrent) => {
+                torrentArray.map((torrent: FinalTorrent) => {
                     torrentList.addFields(
                         { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
                     )

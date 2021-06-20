@@ -5,68 +5,44 @@ import { FinalTorrent } from "./types";
 const torrentApi = require("torrent-search-api");
 torrentApi.enableProvider("1337x");
 
-
 //@ts-ignore
 const urlencode = require("urlencode");
 //@ts-ignore
 const fetch = require("node-fetch");
 import axios from "axios";
+import { Torrent } from "torrent-search-api";
 
 
 /**
- * 
  * @param {string} torrent The torrent query string
- * @returns {Promise<FinalTorrent[]>} FinalTorrent[]
+ * @returns {Promise<FinalTorrent[]>} An array of the FinalTorrent interface type.
  */
-const grabTorrents = async (torrent: string) =>
+const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> =>
 {
     try
     {
-        let tempArr: FinalTorrent[] = []; // length 3 of type <torrent>
-        let torrentArray: FinalTorrent[] = []; // serializing the <torrent> objects into array of objects
+        let torrents: Torrent[] = await torrentApi.search(torrent);
+        let finalTorrents: FinalTorrent[] = [];
 
-        await torrentApi.search(torrent)
-            .then((e: FinalTorrent[]) => { //e is an array of type <torrent>
-                
-                for (let i = 0; i < 3; i++)
-                {
-                    if (!(typeof e[i] === "undefined"))
-                    {
-                        tempArr.push(e[i]);
-                    }
-                    
-                }
-                //torrentObj = e[0]; //First object in the array of torrents
-            });
-        
-        
-
-        for (let i = 0; i < tempArr.length; i++)
+        for (let i = 0; i < 3; i++)
         {
-            await torrentApi.getMagnet(tempArr[i])
-            .then((obj: string) => {
-                torrentArray.push({
-                    number : i+1,
-                    title : tempArr[i].title,
-                    desc : tempArr[i].desc,
-                    size : tempArr[i].size,
-                    seeds : tempArr[i].seeds,
-                    magnet : obj
-                });
-            });
+            if (torrents[i] != null)
+            {
+                finalTorrents.push(torrents[i]);
+            }
         }
 
-        for (let i = 0; i < torrentArray.length; i++)
+        for (let i = 0; i < finalTorrents.length; i++)
         {
-            await shorten(torrentArray[i].magnet)
-            .then((obj: string) => {
-                torrentArray[i].magnet = obj;
-            });
+            const longMagnet = await torrentApi.getMagnet(finalTorrents[i]);
+            finalTorrents[i].magnet = await shorten(longMagnet);
+            finalTorrents[i].number = i + 1;
         }
-        return torrentArray;
+
+        return finalTorrents;
         
     } 
-    catch (error) {
+    catch (error: any) {
         console.log(error);
         return [];
     }
@@ -74,29 +50,24 @@ const grabTorrents = async (torrent: string) =>
 }
 
 /**
- * 
  * @param {string} magnet
- * @returns {string} shorturl string
+ * @returns {Promise<string>} shorturl string
  */
-const shorten = async (magnet: string) =>
+const shorten = async (magnet: string): Promise<string> =>
 {
     try
     {
         let encoded = urlencode(magnet);
         const resp = await axios.get(`http://mgnet.me/api/create?&format=json&opt=&m=${encoded}`);
-        const data = await resp.data;
-        return data.shorturl;
-        
+        return resp.data.shorturl;
     }
     catch(err)
     {
         console.log(err);
     }
-
-    
 }
 
 export {
     shorten,
     grabTorrents
-}
+};
