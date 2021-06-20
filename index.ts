@@ -5,12 +5,20 @@ Version: V2.0
 Description: NodeJS Discord Bot that uses the 1337x API to grab relevant torrents.
 */
 
+let token: string;
+
 import { Message } from "discord.js";
 import { FinalTorrent} from "./modules/types";
 
-//Config Stuff
-import { token } from "./config.json";
-
+const fs = require("fs");
+//setting token
+if (fs.existsSync("./config.json")) {
+    token = JSON.parse(fs.readFileSync("./config.json")).token;
+}
+else
+{
+    token = "";
+}
 
 //Discord Stuff
 const Discord = require("discord.js");
