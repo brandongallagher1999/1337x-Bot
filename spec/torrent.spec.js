@@ -1,5 +1,7 @@
 const {grabTorrents} = require("../dist/modules/torrent");
+
 jest.setTimeout(10000);
+
 test("Testing torrent grabbing", async function() {
     let res = await grabTorrents("Inception"); //first object in response
     

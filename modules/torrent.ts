@@ -67,7 +67,7 @@ const grabTorrents = async (torrent: string) =>
         
     } 
     catch (error) {
-        console.log("Hmmmm");
+        console.log(error);
         return [];
     }
     
