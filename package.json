@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "compile": "tsc"
+    "compile": "touch config.json && tsc"
   },
   "author": "Brandon Gallagher",
   "license": "ISC",
