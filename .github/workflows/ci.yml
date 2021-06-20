@@ -24,7 +24,5 @@ jobs:
         run: npm ci
       - name: Compile TypeScript Files
         run: npm run compile
-      - name: tsc
-        run: npm run ts-node index.ts
       - name: Test Files
         run: npm test
