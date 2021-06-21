@@ -53,7 +53,7 @@ client.on("message", async (msg: Message) => {
 
 
     let query = "";
-    args.map(string=> {
+    args.map(string => {
         query += " " + string;
     });
 

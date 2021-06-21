@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:lts
 
 COPY . .
 
@@ -7,9 +7,6 @@ EXPOSE 443
 
 
 RUN npm install
-RUN npm install typescript -g
-RUN tsc
+RUN npm install ts-node -g
 
-WORKDIR /dist/
-
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["ts-node", "index.ts"]
