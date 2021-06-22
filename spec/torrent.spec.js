@@ -12,11 +12,11 @@ const runTest = async () => {
 test("Testing torrent grabbing", async () => {
     try
     {
-        runTest();
+        await runTest();
     } catch (err)
     {
         console.log(err);
-        runTest(); // Why am I calling this function again? Because the first grabTorrents() always fails due to some silly CloudFlare error.
+        await runTest(); // Why am I calling this function again? Because the first grabTorrents() always fails due to some silly CloudFlare error.
     }
 });
 
