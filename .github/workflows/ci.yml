@@ -25,3 +25,5 @@ jobs:
       - name: Compile TypeScript Files
         run: npm run compile
         #Running tests isn't working with Cloudflare for now. I am going to leave it out indefintiely.
+      - name: Run tests
+        run: npm test
