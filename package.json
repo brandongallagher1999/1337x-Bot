@@ -22,6 +22,6 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^15.12.4"
+    "@types/node": "^15.12.5"
   }
 }
