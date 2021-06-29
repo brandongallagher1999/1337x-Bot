@@ -34,7 +34,7 @@
         "memoryReservation": null,
         "volumesFrom": [],
         "stopTimeout": null,
-        "image": "919660748715.dkr.ecr.us-east-2.amazonaws.com/1337x-bot",
+        "image": "919660748715.dkr.ecr.us-east-2.amazonaws.com/1337x-bot:8e1c59bd50650d628afde56235a612a557724de1",
         "startTimeout": null,
         "firelensConfiguration": null,
         "dependsOn": null,
@@ -61,7 +61,7 @@
       "EXTERNAL",
       "EC2"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:3",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:5",
     "family": "DeployContainer",
     "requiresAttributes": [
       {
@@ -76,8 +76,8 @@
       "EC2"
     ],
     "networkMode": null,
-    "cpu": "1024",
-    "revision": 3,
+    "cpu": "2048",
+    "revision": 5,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
