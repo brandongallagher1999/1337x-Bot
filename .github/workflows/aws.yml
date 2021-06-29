@@ -26,6 +26,10 @@
 on:
   release:
     types: [created]
+  
+  push:
+    branches:
+      - master
 
 name: Deploy to Amazon ECS
 
@@ -69,7 +73,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
-        container-name: sample-app
+        container-name: 1337xContainer
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
