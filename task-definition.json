@@ -55,13 +55,13 @@
       }
     ],
     "placementConstraints": [],
-    "memory": "2048",
+    "memory": "4096",
     "taskRoleArn": null,
     "compatibilities": [
       "EXTERNAL",
       "EC2"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:5",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:8",
     "family": "DeployContainer",
     "requiresAttributes": [
       {
@@ -77,7 +77,7 @@
     ],
     "networkMode": null,
     "cpu": "2048",
-    "revision": 5,
+    "revision": 8,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
