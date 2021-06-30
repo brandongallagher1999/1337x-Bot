@@ -34,7 +34,7 @@
         "memoryReservation": null,
         "volumesFrom": [],
         "stopTimeout": null,
-        "image": "919660748715.dkr.ecr.us-east-2.amazonaws.com/1337x-bot:8e1c59bd50650d628afde56235a612a557724de1",
+        "image": "919660748715.dkr.ecr.us-east-2.amazonaws.com/1337x-bot:af4cb0c034532b45ee3cf43ddbb5048d5ac739fa",
         "startTimeout": null,
         "firelensConfiguration": null,
         "dependsOn": null,
@@ -55,13 +55,13 @@
       }
     ],
     "placementConstraints": [],
-    "memory": "4096",
+    "memory": "8192",
     "taskRoleArn": null,
     "compatibilities": [
       "EXTERNAL",
       "EC2"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:8",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:10",
     "family": "DeployContainer",
     "requiresAttributes": [
       {
@@ -77,7 +77,7 @@
     ],
     "networkMode": null,
     "cpu": "2048",
-    "revision": 8,
+    "revision": 10,
     "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
