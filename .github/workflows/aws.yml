@@ -80,6 +80,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: 1337xService
-        cluster: MyCluster
+        service: MainService
+        cluster: MainCluster
         wait-for-service-stability: true

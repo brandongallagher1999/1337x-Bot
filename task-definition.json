@@ -31,10 +31,10 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": null,
+      "memoryReservation": 1000,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "919660748715.dkr.ecr.us-east-2.amazonaws.com/1337x-bot:0645627c33e73c3c6648ce73b0f197a22aacc009",
+      "image": "919660748715.dkr.ecr.us-east-2.amazonaws.com/1337x-bot",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -51,24 +51,30 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "1337xContainer"
+      "name": "1337x-bot"
     }
   ],
   "placementConstraints": [],
-  "memory": "2048",
+  "memory": null,
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/DeployContainer:17",
-  "family": "DeployContainer",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-2:919660748715:task-definition/deploy:1",
+  "family": "deploy",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
     }
   ],
   "pidMode": null,
@@ -76,8 +82,8 @@
     "EC2"
   ],
   "networkMode": null,
-  "cpu": "2048",
-  "revision": 17,
+  "cpu": null,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
