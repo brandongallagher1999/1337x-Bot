@@ -11,8 +11,6 @@ on:
 
 jobs:
   build:
-    env:
-      TOKEN: ${{ secrets.TOKEN }}}
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -22,6 +20,8 @@ jobs:
           host: ${{ secrets.host}}
           username: ${{ secrets.username}}
           key: ${{ secrets.key}}
+          env:
+            TOKEN: ${{ secrets.TOKEN }}}
           script: |
             rm -rf 1337x-bot
             git clone git@github.com:brandongallagher1999/1337x-bot.git

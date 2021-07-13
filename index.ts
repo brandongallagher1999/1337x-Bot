@@ -18,6 +18,7 @@ if (fs.existsSync("./config.json")) {
 else
 {
     token = process.env.TOKEN; //Github secret token
+    console.log("THE TOKEN IS: " + token);
 }
 
 //Discord Stuff
