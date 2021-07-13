@@ -13,4 +13,4 @@ RUN npm install ts-node -g
 
 ENV token=${TOKEN}
 
-ENTRYPOINT ["ts-node", "index.ts", ${token}]
+ENTRYPOINT ts-node index.ts ${token}
