@@ -10,4 +10,4 @@ RUN npm install
 RUN npm install typescript -g
 RUN npm install ts-node -g
 
-ENTRYPOINT ["ts-node", "index.ts"]
+ENTRYPOINT ["ts-node", "index.ts", "$TOKEN"]
