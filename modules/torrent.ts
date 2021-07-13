@@ -12,7 +12,6 @@ const fetch = require("node-fetch");
 import axios from "axios";
 import { Torrent } from "torrent-search-api";
 
-
 /**
  * @param {string} torrent The torrent query string
  * @returns {Promise<FinalTorrent[]>} An array of the FinalTorrent interface type.
