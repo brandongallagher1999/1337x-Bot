@@ -12,12 +12,13 @@ import { FinalTorrent} from "./modules/types";
 
 const fs = require("fs");
 //setting token
-if (fs.existsSync("../config.json")) {
-    token = JSON.parse(fs.readFileSync("../config.json")).token;
+if (fs.existsSync("./config.json")) {
+    token = JSON.parse(fs.readFileSync("./config.json")).token;
 }
 else
 {
-    token = "";
+    token = process.argv[2];
+    console.log("Token is: " + token);
 }
 
 //Discord Stuff
