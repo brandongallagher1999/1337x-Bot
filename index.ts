@@ -18,7 +18,6 @@ if (fs.existsSync("./config.json")) {
 else
 {
     token = process.argv[2];
-    console.log("Token is: " + token);
 }
 
 //Discord Stuff
