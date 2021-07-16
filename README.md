@@ -28,7 +28,7 @@ torrent with its respective magnet, name and image.
 1. Go to root folder and create "config.json"
 ```
 {
-  "config" : "your token goes in this string"
+  "token" : "your token goes in this string"
 }
 ```
 
