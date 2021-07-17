@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.username}}
           key: ${{ secrets.key}}
           script: |
-            sudo docker system prune -a -y
+            yes | sudo docker system prune -a
             rm -rf 1337x-bot
             git clone git@github.com:brandongallagher1999/1337x-bot.git
             cd 1337x-bot
