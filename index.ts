@@ -18,7 +18,6 @@ if (fs.existsSync("./config.json")) {
 else
 {
     token = process.argv[2];
-    console.log("Token is: " + token);
 }
 
 //Discord Stuff
@@ -36,10 +35,12 @@ import {grabTorrents} from "./modules/torrent";
 client.on("ready", () => {
     client.user.setPresence({
         activity : {
-            name : ".help | .invite | .github"
+            name : `.help | .invite | .github | ${client.guilds.cache.size} servers`
         },
         status : "online"
-    })
+    });
+
+    console.log(`Bot is up and running in ${client.guilds.cache.size} servers!`);
 });
 
 // Message in chat event
