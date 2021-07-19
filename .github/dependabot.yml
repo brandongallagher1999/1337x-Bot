@@ -5,6 +5,7 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 99
+  target-branch: "pre-prod"
   ignore:
   - dependency-name: "@types/node"
     versions:
