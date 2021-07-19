@@ -85,7 +85,7 @@ client.on("message", async (msg: Message) => {
                         .setTitle("Not found")
                         .setAuthor(msg.author.username)
                         .addFields(
-                            { name : "Message", value: "Torrent not found in 1337x. Please another query."},
+                            { name : "Message", value: "Torrent not found in 1337x. Please try another query."},
                         )
                         .setFooter(Date())
                 );
