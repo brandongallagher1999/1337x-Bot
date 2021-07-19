@@ -1,4 +1,5 @@
 version: 2
+target_branch: pre-prod
 updates:
 - package-ecosystem: npm
   directory: "/"
