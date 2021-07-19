@@ -1,11 +1,11 @@
 version: 2
-target_branch: pre-prod
 updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 99
+  target-branch: "pre-prod"
   ignore:
   - dependency-name: "@types/node"
     versions:
