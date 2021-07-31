@@ -36,7 +36,7 @@ torrent with its respective magnet, name and image.
 1. Go into root folder and run
 ```
 docker-compose build
-docker-compose up
+docker-compose up -d
 ```
   
 # Commands
