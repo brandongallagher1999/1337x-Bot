@@ -1,4 +1,4 @@
-name: AWS EC2 Deployment
+name: Azure Deployment
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build Docker Image and deploy to Azure Linux VM
     runs-on: ubuntu-latest
     steps:
       - name: Login to SSH
