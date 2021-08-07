@@ -10,7 +10,7 @@ const urlencode = require("urlencode");
 //@ts-ignore
 const fetch = require("node-fetch");
 import axios from "axios";
-import { Torrent } from "torrent-search-api";
+
 
 /**
  * @param {string} torrent The torrent query string

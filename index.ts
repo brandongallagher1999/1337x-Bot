@@ -1,16 +1,19 @@
-/*
-Name: Brandon Gallagher
-Date: July 16th, 2020
-Version: V2.0
-Description: NodeJS Discord Bot that uses the 1337x API to grab relevant torrents.
-*/
+import { Message } from "discord.js";
+import { FinalTorrent} from "./modules/types";
+const fs = require("fs");
+
+//Torrent Module
+import {grabTorrents} from "./modules/torrent";
+
+//Discord Stuff
+const Discord = require("discord.js");
+const client = new Discord.Client();
 
 let token: string; //empty login token, initially.
 
-import { Message } from "discord.js";
-import { FinalTorrent} from "./modules/types";
+//Command Prefix
+const prefix = ".";
 
-const fs = require("fs");
 //setting token
 if (fs.existsSync("./config.json")) {
     token = JSON.parse(fs.readFileSync("./config.json")).token;
@@ -19,17 +22,6 @@ else
 {
     token = process.argv[2];
 }
-
-//Discord Stuff
-const Discord = require("discord.js");
-const client = new Discord.Client();
-
-//Command Prefix
-const prefix = ".";
-
-//Torrent Module
-import {grabTorrents} from "./modules/torrent";
-
 
 //Start-up event
 client.on("ready", () => {
@@ -123,6 +115,8 @@ client.on("message", async (msg: Message) => {
     
 
 });
+
+grabTorrents("Get rid of cloudflare error pls"); //initial query allows us to query from the bot without cloudflare exception
 
 client.login(token);
 
