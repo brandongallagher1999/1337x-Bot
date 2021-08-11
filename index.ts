@@ -1,4 +1,4 @@
-import { Message } from "discord.js";
+import { Message, Intents } from "discord.js";
 import { FinalTorrent} from "./modules/types";
 const fs = require("fs");
 
@@ -7,7 +7,7 @@ import {grabTorrents} from "./modules/torrent";
 
 //Discord Stuff
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 let token: string; //empty login token, initially.
 
