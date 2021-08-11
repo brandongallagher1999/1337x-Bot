@@ -1,4 +1,4 @@
-import { Message, Intents, MessageEmbed} from "discord.js";
+import { Message, Intents, MessageEmbed, Client} from "discord.js";
 import { FinalTorrent} from "./modules/types";
 const fs = require("fs");
 
@@ -7,7 +7,7 @@ import {grabTorrents} from "./modules/torrent";
 
 //Discord Stuff
 const Discord = require("discord.js");
-const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client: Client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 let token: string; //empty login token, initially.
 
@@ -26,9 +26,9 @@ else
 //Start-up event
 client.on("ready", () => {
     client.user.setPresence({
-        activity : {
+        activities : [{
             name : `.help | .invite | .github | ${client.guilds.cache.size} servers`
-        },
+        }],
         status : "online"
     });
 
@@ -72,7 +72,7 @@ client.on("messageCreate", async (msg: Message) => {
             }
             else
             {
-                msg.channel.send({ embeds : 
+                msg.channel.send({ embeds : [
                     new Discord.MessageEmbed()
                         .setTitle("Not found")
                         .setAuthor(msg.author.username)
@@ -80,13 +80,13 @@ client.on("messageCreate", async (msg: Message) => {
                             { name : "Message", value: "Torrent not found in 1337x. Please try another query."},
                         )
                         .setFooter(Date())
-                });
+                ]});
             }
             
             break;
 
         case "github":
-            msg.channel.send(
+            msg.channel.send({ embeds : [
                 new Discord.MessageEmbed()
                     .setTitle("1337x Bot GitHub Repo")
                     .setAuthor("Cryptoguys")
@@ -95,7 +95,7 @@ client.on("messageCreate", async (msg: Message) => {
                         {name: "Help out!", value: "Please give the repo a star! :star:"}
                     )
                     .setFooter(Date())
-            );
+            ]});
             break;
         
         case "help":
@@ -103,12 +103,12 @@ client.on("messageCreate", async (msg: Message) => {
             break;
 
         case "invite":
-            msg.channel.send( { embeds : 
+            msg.channel.send( { embeds : [
                 new Discord.MessageEmbed()
                     .setTitle("1337x Bot Invite")
                     .setAuthor(msg.author.username)
                     .setURL("https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot")
-            });
+            ]});
             break;
         
     }
