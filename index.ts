@@ -1,4 +1,4 @@
-import { Message, Intents } from "discord.js";
+import { Message, Intents, MessageEmbed} from "discord.js";
 import { FinalTorrent} from "./modules/types";
 const fs = require("fs");
 
@@ -36,7 +36,7 @@ client.on("ready", () => {
 });
 
 // Message in chat event
-client.on("message", async (msg: Message) => {
+client.on("messageCreate", async (msg: Message) => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) 
     {
         return;
@@ -59,20 +59,20 @@ client.on("message", async (msg: Message) => {
 
             if (torrentArray.length > 0)
             {
-                let torrentList = new Discord.MessageEmbed();
+                let torrentList: MessageEmbed = new Discord.MessageEmbed();
                 torrentList.setAuthor(`@${msg.author.username}`);
                 torrentArray.map((torrent: FinalTorrent) => {
                     torrentList.addFields(
                         { name : `${torrent.number}. ${torrent.title}`, value : `${torrent.magnet} | Seeders: ${torrent.seeds} | Size: ${torrent.size}`}
                     )
                 });
-                msg.channel.send(torrentList); //Send them the list of torrents in the channel
+                msg.channel.send({embeds : [torrentList]}); //Send them the list of torrents in the channel
 
                 
             }
             else
             {
-                msg.channel.send(
+                msg.channel.send({ embeds : 
                     new Discord.MessageEmbed()
                         .setTitle("Not found")
                         .setAuthor(msg.author.username)
@@ -80,7 +80,7 @@ client.on("message", async (msg: Message) => {
                             { name : "Message", value: "Torrent not found in 1337x. Please try another query."},
                         )
                         .setFooter(Date())
-                );
+                });
             }
             
             break;
@@ -103,12 +103,12 @@ client.on("message", async (msg: Message) => {
             break;
 
         case "invite":
-            msg.channel.send(
+            msg.channel.send( { embeds : 
                 new Discord.MessageEmbed()
                     .setTitle("1337x Bot Invite")
                     .setAuthor(msg.author.username)
                     .setURL("https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot")
-            );
+            });
             break;
         
     }
