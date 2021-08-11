@@ -13,6 +13,7 @@ import axios from "axios";
 
 
 /**
+ * @description Searches 1337x for the torrent given a query string.
  * @param {string} torrent The torrent query string
  * @returns {Promise<FinalTorrent[]>} An array of the FinalTorrent interface type.
  */
@@ -49,6 +50,7 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> =>
 }
 
 /**
+ * @description Shortens the given magnet string into a URL, using the mgnet.me REST api
  * @param {string} magnet
  * @returns {Promise<string>} shorturl string
  */

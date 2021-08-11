@@ -3,9 +3,9 @@ name: CI
 on:
 
   push:
-    branches: [ master, pre-prod ]
+    branches: [ production, pre-prod ]
   pull_request:
-    branches: [ master, pre-prod ]
+    branches: [ production, pre-prod ]
 
 
   workflow_dispatch:
@@ -24,6 +24,5 @@ jobs:
         run: npm ci
       - name: Compile TypeScript Files
         run: npm run compile
-        #Running tests isn't working with Cloudflare for now. I am going to leave it out indefintiely.
       - name: Run tests
         run: npm test
