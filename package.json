@@ -20,7 +20,7 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^16.4.13"
+    "@types/node": "^16.6.0"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
