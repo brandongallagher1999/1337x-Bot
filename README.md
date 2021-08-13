@@ -1,4 +1,4 @@
-![Build](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/ci.yml/badge.svg)
+![build](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/ci.yml/badge.svg) ![deployment](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/azure.yml/badge.svg)
 
 ![1337x Logo](https://img.ibxk.com.br/2015/07/22/22123545851313.jpg)
 <br>
