@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
 
       - name: Install npm packages
-        run: npm ci
+        run: npm i
       - name: Compile TypeScript Files
         run: npm run compile
       - name: Run tests
