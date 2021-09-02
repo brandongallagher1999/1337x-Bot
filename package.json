@@ -13,14 +13,14 @@
     "@types/axios": "^0.14.0",
     "@types/torrent-search-api": "^2.0.0",
     "axios": "^0.21.1",
-    "discord.js": "^13.0.1",
+    "discord.js": "^13.1.0",
     "fs": "0.0.1-security",
     "jest": "^27.0.6",
     "torrent-search-api": "^2.1.4",
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^16.4.13"
+    "@types/node": "^16.6.1"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
