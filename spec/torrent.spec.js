@@ -19,5 +19,3 @@ test("Testing torrent grabbing", async () => {
         await runTest(); // Why am I calling this function again? Because the first grabTorrents() always fails due to some silly CloudFlare error.
     }
 });
-
-
