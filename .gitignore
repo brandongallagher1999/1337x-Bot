@@ -1,7 +1,4 @@
-./node_modules
-/node_modules
-
-**/config.json
-.config.json
-dist/
+config.json
+dist
 package-lock.json
+node_modules

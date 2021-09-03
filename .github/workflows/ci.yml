@@ -1,25 +1,20 @@
 name: CI
 
 on:
-
   push:
-    branches: [ production, pre-prod ]
+    branches: [production, pre-prod]
   pull_request:
-    branches: [ production, pre-prod ]
-
+    branches: [production, pre-prod]
 
   workflow_dispatch:
 
 jobs:
-
   build:
-  
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.5
-
       - name: Install npm packages
         run: npm i
       - name: Compile TypeScript Files
