@@ -19,11 +19,13 @@ const runTest = async () => {
   expect(res.length).toBe(3); // 3 results
 };
 
-test("Testing torrent grabbing", async () => {
-  try {
-    await runTest();
-  } catch (err) {
-    console.log(err);
-    await runTest(); // Why am I calling this function again? Because the first grabTorrents() always fails due to some silly CloudFlare error.
-  }
+describe("Testing torrent module", () => {
+  test("Should receive torrent from torrent api", async () => {
+    try {
+      await runTest();
+    } catch (err) {
+      console.log(err);
+      await runTest(); // Why am I calling this function again? Because the first grabTorrents() always fails due to some silly CloudFlare error.
+    }
+  });
 });

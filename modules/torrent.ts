@@ -1,8 +1,7 @@
 import { FinalTorrent } from "./types";
-import * as torrentApi from "torrent-search-api";
 import axios from "axios";
-import * as urlencode from "urlencode";
-
+const urlencode = require("urlencode");
+const torrentApi = require("torrent-search-api");
 torrentApi.enableProvider("1337x");
 
 /**
