@@ -1,8 +1,7 @@
 import { FinalTorrent } from "./types";
+import * as torrentApi from "torrent-search-api";
 import axios from "axios";
-
-const torrentApi = require("torrent-search-api");
-const urlencode = require("urlencode");
+import * as urlencode from "urlencode";
 
 torrentApi.enableProvider("1337x");
 
@@ -37,7 +36,7 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
 
 /**
  * @description Shortens the given magnet string into a URL, using the mgnet.me REST api
- * @param {string} magnet
+ * @param {string} magnet Magnet String
  * @returns {Promise<string>} shorturl string
  */
 const shorten = async (magnet: string): Promise<string> => {

@@ -1,13 +1,9 @@
 import { Message, Intents, MessageEmbed, Client } from "discord.js";
 import { FinalTorrent } from "./modules/types";
-const fs = require("fs");
-
-//Torrent Module
+import * as fs from "fs";
 import { grabTorrents } from "./modules/torrent";
 
-//Discord Stuff
-const Discord = require("discord.js");
-const client: Client = new Discord.Client({
+const client: Client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
@@ -18,7 +14,7 @@ const prefix = ".";
 
 //setting token
 if (fs.existsSync("./config.json")) {
-  token = JSON.parse(fs.readFileSync("./config.json")).token;
+  token = JSON.parse(fs.readFileSync("./config.json").toString()).token;
 } else {
   token = process.argv[2];
 }
@@ -55,7 +51,7 @@ client.on("messageCreate", async (msg: Message) => {
       const torrentArray: FinalTorrent[] = await grabTorrents(query);
 
       if (torrentArray.length > 0) {
-        let torrentList: MessageEmbed = new Discord.MessageEmbed();
+        let torrentList: MessageEmbed = new MessageEmbed();
         torrentList.setAuthor(`@${msg.author.username}`);
         torrentArray.map((torrent: FinalTorrent) => {
           torrentList.addFields({
@@ -67,7 +63,7 @@ client.on("messageCreate", async (msg: Message) => {
       } else {
         msg.channel.send({
           embeds: [
-            new Discord.MessageEmbed()
+            new MessageEmbed()
               .setTitle("Not found")
               .setAuthor(msg.author.username)
               .addFields({
@@ -84,7 +80,7 @@ client.on("messageCreate", async (msg: Message) => {
     case "github":
       msg.channel.send({
         embeds: [
-          new Discord.MessageEmbed()
+          new MessageEmbed()
             .setTitle("1337x Bot GitHub Repo")
             .setAuthor("Cryptoguys")
             .setURL("https://github.com/brandongallagher1999/1337x-Bot")
@@ -92,7 +88,6 @@ client.on("messageCreate", async (msg: Message) => {
               name: "Help out!",
               value: "Please give the repo a star! :star:",
             })
-            .setFooter(Date()),
         ],
       });
       break;
@@ -106,7 +101,7 @@ client.on("messageCreate", async (msg: Message) => {
     case "invite":
       msg.channel.send({
         embeds: [
-          new Discord.MessageEmbed()
+          new MessageEmbed()
             .setTitle("1337x Bot Invite")
             .setAuthor(msg.author.username)
             .setURL(
