@@ -87,7 +87,7 @@ client.on("messageCreate", async (msg: Message) => {
             .addFields({
               name: "Help out!",
               value: "Please give the repo a star! :star:",
-            })
+            }),
         ],
       });
       break;
