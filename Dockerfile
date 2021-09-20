@@ -9,8 +9,10 @@ ARG TOKEN
 
 ENV token=${TOKEN}
 
-RUN npm install
-RUN npm install typescript -g
-RUN npm install ts-node -g
+RUN npm i -g yarn
+RUN yarn run lint
+RUN yarn install
+RUN yarn global add typescript
+RUN yarn global add ts-node
 
 ENTRYPOINT ts-node index.ts ${token}

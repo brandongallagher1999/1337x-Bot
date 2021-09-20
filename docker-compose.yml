@@ -1,9 +1,9 @@
-version: '3.8'
+version: "3.8"
 
 services:
-    bot:
-        build:
-            context: "."
-            dockerfile: "Dockerfile"
-        ports:
-            - "80:80"
+  bot:
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+    ports:
+      - "80:80"

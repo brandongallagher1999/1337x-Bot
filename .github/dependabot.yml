@@ -1,15 +1,15 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 99
-  target-branch: "pre-prod"
-  ignore:
-  - dependency-name: "@types/node"
-    versions:
-    - 15.0.0
-  - dependency-name: discord.js
-    versions:
-    - 12.5.2
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 99
+    target-branch: "pre-prod"
+    ignore:
+      - dependency-name: "@types/node"
+        versions:
+          - 15.0.0
+      - dependency-name: discord.js
+        versions:
+          - 12.5.2

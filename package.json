@@ -2,10 +2,11 @@
   "name": "1337x",
   "version": "1.0.0",
   "description": "A Discord bot that uses the 1337x API to gather the most relevant torrents and then send it to the user.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest",
-    "compile": "tsc"
+    "compile": "tsc",
+    "lint": "yarn prettier --write ."
   },
   "author": "Brandon Gallagher",
   "license": "ISC",
@@ -16,13 +17,15 @@
     "discord.js": "^13.1.0",
     "fs": "0.0.1-security",
     "jest": "^27.0.6",
-    "torrent-search-api": "^2.1.4",
+    "torrent-search-api": "git+https://github.com/brandongallagher1999/torrent-search-api.git",
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^16.6.1"
+    "@types/node": "^16.6.1",
+    "prettier": "2.4.1"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
-  }
+  },
+  "repository": "git@github.com:brandongallagher1999/1337x-Bot.git"
 }
