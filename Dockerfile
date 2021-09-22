@@ -11,4 +11,4 @@ RUN yarn install
 RUN yarn global add typescript
 RUN yarn global add ts-node
 
-ENTRYPOINT ts-node index.ts ${TOKEN}}
+ENTRYPOINT ts-node index.ts ${TOKEN}
