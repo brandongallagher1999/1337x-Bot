@@ -10,6 +10,23 @@ https://github.com/brandongallagher1999/1337x-Bot/
 
 [Invite Link](https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot)
 
+
+# Commands
+
+```
+// To find a torrent
+.torrent <query>
+
+// For help
+.help
+
+// To invite
+.invite
+
+// To get the GitHub link
+.github
+```
+
 ## Contributors
 
 1. **Brandon Gallagher**
@@ -46,20 +63,4 @@ https://github.com/brandongallagher1999/1337x-Bot/
 ```
 docker-compose build
 docker-compose up -d
-```
-
-# Commands
-
-```
-// To find a torrent
-.torrent <query>
-
-// For help
-.help
-
-// To invite
-.invite
-
-// To get the GitHub link
-.github
 ```
