@@ -1,10 +1,6 @@
 name: Azure Deployment
 
-on:
-  push:
-    branches: [production]
-
-    workflow-dispatch:
+on: workflow_dispatch
 
 jobs:
   build:
