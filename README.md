@@ -2,6 +2,11 @@
 
 ![1337x Logo](https://img.ibxk.com.br/2015/07/22/22123545851313.jpg)
 
+## Description
+
+- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other things and returns them a revelant
+  torrent with its respective magnet, name and image.
+
 ## Github project URL
 
 https://github.com/brandongallagher1999/1337x-Bot/
@@ -10,10 +15,6 @@ https://github.com/brandongallagher1999/1337x-Bot/
 
 [Invite Link](https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot)
 
-## Description
-
-- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other things and returns them a revelant
-  torrent with its respective magnet, name and image.
 
 
 # Commands
