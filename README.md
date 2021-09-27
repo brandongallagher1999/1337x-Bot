@@ -10,6 +10,11 @@ https://github.com/brandongallagher1999/1337x-Bot/
 
 [Invite Link](https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot)
 
+## Description
+
+- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other things and returns them a revelant
+  torrent with its respective magnet, name and image.
+
 
 # Commands
 
@@ -34,11 +39,6 @@ https://github.com/brandongallagher1999/1337x-Bot/
 - Roles: Back-end
 - Email: brandonegallagher@gmail.com
 - [Github Profile](https://github.com/brandongallagher1999)
-
-## Description
-
-- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other things and returns them a revelant
-  torrent with its respective magnet, name and image.
 
 # How to run
 
