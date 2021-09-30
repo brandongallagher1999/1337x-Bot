@@ -14,7 +14,7 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
     let torrents: FinalTorrent[] = await torrentApi.search(torrent);
     let finalTorrents: FinalTorrent[] = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
       if (torrents[i] != null) {
         finalTorrents.push(torrents[i]);
       }
