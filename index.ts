@@ -65,11 +65,10 @@ client.on("messageCreate", async (msg: Message) => {
         msg.channel.send({
           embeds: [
             new MessageEmbed()
-              .setTitle("Not found")
+              .setTitle("No results were returned.")
               .setAuthor(msg.author.username)
               .addFields({
-                name: "Message",
-                value: "Torrent not found in 1337x. Please try another query.",
+                name: "Torrent not found on 1337x, please refine your search.",
               })
               .setFooter(Date()),
           ],
@@ -82,12 +81,12 @@ client.on("messageCreate", async (msg: Message) => {
       msg.channel.send({
         embeds: [
           new MessageEmbed()
-            .setTitle("1337x Bot GitHub Repo")
+            .setTitle("Bot's GitHub")
             .setAuthor("Cryptoguys")
             .setURL("https://github.com/brandongallagher1999/1337x-Bot")
             .addFields({
               name: "Help out!",
-              value: "Please give the repo a star! :star:",
+              value: "Go give the repo a star! :star:",
             }),
         ],
       });
@@ -95,7 +94,7 @@ client.on("messageCreate", async (msg: Message) => {
 
     case "help":
       msg.channel.send(
-        "``` .torrent <torrent name> //IE: .torrent The Witcher 3 Wild Hunt \n .invite //the invite link to the discord bot```"
+        "``` .torrent <torrent name> // .torrent The Witcher 3 Wild Hunt \n .invite // Invite link to the Discord Bot```"
       );
       break;
 
