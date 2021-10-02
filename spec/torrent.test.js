@@ -16,7 +16,6 @@ const runTest = async () => {
     "magnet",
     "number",
   ]); //verifying schema
-  expect(res.length).toBe(3); // 3 results
 };
 
 describe("Testing torrent module", () => {
