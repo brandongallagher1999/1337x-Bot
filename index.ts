@@ -67,9 +67,12 @@ client.on("messageCreate", async (msg: Message) => {
             new MessageEmbed()
               .setTitle("No results were returned.")
               .setAuthor(msg.author.username)
-              .addFields({
-                name: "Torrent not found on 1337x, please refine your search.",
-              })
+              .addFields([
+                {
+                  name: "Not found",
+                  value: "Torrent not found on 1337x, please refine your search."
+                }
+              ])
               .setFooter(Date()),
           ],
         });
