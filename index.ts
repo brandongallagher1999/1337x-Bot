@@ -16,7 +16,7 @@ const prefix = ".";
 if (fs.existsSync("./config.json")) {
   token = JSON.parse(fs.readFileSync("./config.json").toString()).token;
 } else {
-  token = process.argv[2];
+  token = process.argv[2].toString();
 }
 
 //Start-up event
@@ -70,8 +70,9 @@ client.on("messageCreate", async (msg: Message) => {
               .addFields([
                 {
                   name: "Not found",
-                  value: "Torrent not found on 1337x, please refine your search."
-                }
+                  value:
+                    "Torrent not found on 1337x, please refine your search.",
+                },
               ])
               .setFooter(Date()),
           ],

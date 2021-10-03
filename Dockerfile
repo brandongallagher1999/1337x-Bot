@@ -6,7 +6,7 @@ EXPOSE 80
 EXPOSE 443
 
 ARG TOKEN
-ENV token=${token}
+ENV token=$TOKEN
 
 RUN yarn install
 RUN yarn global add typescript
