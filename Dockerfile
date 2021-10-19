@@ -5,11 +5,10 @@ COPY . .
 EXPOSE 80
 EXPOSE 443
 
-ARG TOKEN
-ENV token=$TOKEN
-
 RUN yarn install
 RUN yarn global add typescript
 RUN yarn global add ts-node
+RUN chmod 755 docker-entrypoint.sh
 
-ENTRYPOINT "ts-node" "index.ts" ${token}
+ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD [$token]
