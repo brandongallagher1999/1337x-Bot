@@ -48,7 +48,7 @@ client.on("messageCreate", async (msg: Message) => {
 
   switch (command) {
     case "torrent":
-      msg.channel.send("`Searching...`");
+      msg.channel.sendTyping();
       const torrentArray: FinalTorrent[] = await grabTorrents(query);
 
       if (torrentArray.length > 0) {
