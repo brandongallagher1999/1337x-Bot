@@ -44,8 +44,9 @@
 ## Create Configuration File
 
 1. Go to root folder and:
-```
+```sh
 TOKEN="your token goes in this string"
+
 echo { '"token"' : '"'$TOKEN'"' } > config.json
 ```
 
