@@ -43,8 +43,12 @@
 
 ## Create Configuration File
 
-1. Go to root folder and create "config.json"
+1. Go to root folder and:
+```
+echo { "token" : "" } > config.json
+```
 
+2. 
 ```
 {
   "token" : "your token goes in this string"
