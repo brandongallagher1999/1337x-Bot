@@ -45,14 +45,8 @@
 
 1. Go to root folder and:
 ```
-echo { "token" : "" } > config.json
-```
-
-2. 
-```
-{
-  "token" : "your token goes in this string"
-}
+TOKEN="your token goes in this string"
+echo { '"token"' : '"'$TOKEN'"' } > config.json
 ```
 
 ## Container
