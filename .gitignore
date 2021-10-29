@@ -1,5 +1,4 @@
 config.json
 dist
-yarn.lock
 node_modules
 .vs
