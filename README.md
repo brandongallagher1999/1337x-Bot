@@ -58,3 +58,6 @@ echo { '"token"' : '"'$TOKEN'"' } > config.json
 docker-compose build
 docker-compose up -d
 ```
+
+# Example / Usage
+![Example](/images/example.jpg?raw=true)
