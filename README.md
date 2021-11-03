@@ -6,7 +6,7 @@
 
 ## Description
 
-- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other things and returns them a revelant
+- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other content and returns them a revelant
   torrent with its respective magnet, name and image.
 
 ## [Discord Bot Invite Link](https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot)
@@ -39,7 +39,7 @@
 
 ## Docker
 
-1. Download Docker for Desktop (https://www.docker.com/products/docker-desktop)
+1. Install Docker (https://docs.docker.com/get-docker/)
 
 ## Create Configuration File
 
