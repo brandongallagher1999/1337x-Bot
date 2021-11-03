@@ -9,8 +9,6 @@
 - Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other content and returns them a revelant
   torrent with its respective magnet, name and image.
 
-## [Discord Bot Invite Link](https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot)
-
 # Commands
 
 ```
