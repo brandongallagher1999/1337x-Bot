@@ -7,7 +7,7 @@
 ## Description
 
 - Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other content and returns them a revelant
-  torrent with its respective magnet, name and image.
+  torrent with its respective shortened magnet url, name, seeders and size.
 
 # Commands
 
@@ -24,14 +24,6 @@
 // To get the GitHub link
 .github
 ```
-
-## Contributors
-
-1. **Brandon Gallagher**
-
-- Roles: Back-end Developer
-- Email: brandonegallagher@gmail.com
-- [Github Profile](https://github.com/brandongallagher1999)
 
 # How to run using Docker
 
