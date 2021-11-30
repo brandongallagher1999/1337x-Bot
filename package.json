@@ -21,7 +21,7 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.10",
+    "@types/node": "^16.11.11",
     "prettier": "2.5.0"
   },
   "optionalDependencies": {
