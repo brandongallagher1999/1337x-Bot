@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.11.11",
-    "prettier": "2.5.0"
+    "prettier": "2.5.1"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
