@@ -1,30 +1,32 @@
-const { grabTorrents } = require("../dist/modules/torrent");
+const {
+  grabTorrents
+} = require("../dist/modules/torrent");
+const axios = require("axios");
 
 jest.setTimeout(1000000);
 
-const runTest = async () => {
-  let res = await grabTorrents("Inception"); //first object in response
-  console.log(res);
-  expect(Object.keys(res[0])).toStrictEqual([
-    "title",
-    "time",
-    "seeds",
-    "peers",
-    "size",
-    "desc",
-    "provider",
-    "magnet",
-    "number",
-  ]); //verifying schema
-};
-
 describe("Testing torrent module", () => {
+  beforeAll(async () => {
+    await grabTorrents("Inception"); // Trigger first time cloudflair fail.
+  });
+
+  test("1337x can be accessed", async () => {
+    const websiteRepsonse = await axios.get("https://1337x.to/");
+    expect(websiteRepsonse.status).toBe(200);
+  });
+
   test("Should receive torrent from torrent api", async () => {
-    try {
-      await runTest();
-    } catch (err) {
-      console.log(err);
-      await runTest(); // Why am I calling this function again? Because the first grabTorrents() always fails due to some silly CloudFlare error.
-    }
+    const res = await grabTorrents("Inception");
+    expect(Object.keys(res[0])).toStrictEqual([
+      "title",
+      "time",
+      "seeds",
+      "peers",
+      "size",
+      "desc",
+      "provider",
+      "magnet",
+      "number",
+    ]); //verifying schema
   });
 });

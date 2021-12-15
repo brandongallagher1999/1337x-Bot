@@ -34,6 +34,7 @@
 ## Create Configuration File
 
 1. Go to root folder and:
+
 ```sh
 TOKEN="your token goes in this string"
 
@@ -50,4 +51,5 @@ docker-compose up -d
 ```
 
 # Example / Usage
+
 ![Example](/images/example.jpg?raw=true)

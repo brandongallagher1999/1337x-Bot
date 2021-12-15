@@ -11,8 +11,6 @@
   "author": "Brandon Gallagher",
   "license": "ISC",
   "dependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/torrent-search-api": "^2.0.0",
     "axios": "^0.24.0",
     "discord.js": "^13.3.1",
     "fs": "0.0.1-security",
@@ -21,6 +19,8 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/torrent-search-api": "^2.0.0",
     "@types/node": "^16.11.13",
     "prettier": "2.5.1"
   },
