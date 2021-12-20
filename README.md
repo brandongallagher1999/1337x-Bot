@@ -1,3 +1,5 @@
+![](https://dcbadge.vercel.app/api/shield/bot/733428046845050982)
+
 ![build](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/ci.yml/badge.svg) ![deployment](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/azure.yml/badge.svg)
 
 ![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)
