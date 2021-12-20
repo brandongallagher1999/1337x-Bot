@@ -4,8 +4,8 @@
 
 ## Description
 
-- Uses 1337x and Discord.JS (NodeJS) to create a bot that allows users to look up content such as Movies, Games and other content and returns them a revelant
-  torrent with its respective shortened magnet url, name, seeders and size.
+- Uses 1337x and Discord.JS (NodeJS) to create a Bot that allows users to search for content such as Movies, Games, etc. and returning a relevant
+  list of Torrents with their respective shortened magnet URLs, Names, Seeders and File Sizes.
 
 # Commands
 
