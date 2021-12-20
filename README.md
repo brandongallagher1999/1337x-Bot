@@ -1,8 +1,6 @@
+![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)  
+# Unofficial Discord Bot  
 ![build](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/ci.yml/badge.svg) ![deployment](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/azure.yml/badge.svg)
-
-![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)
-
-# 1337x Discord Bot
 
 ## Description
 
@@ -15,35 +13,42 @@
 // To find a torrent
 .torrent <query>
 
-// For help
+// For a list of commands
 .help
 
-// To invite
+// To invite the Bot elsewhere
 .invite
 
-// To get the GitHub link
+// Get the GitHub link to the project
 .github
 ```
 
 # How to run using Docker
 
-## Docker
+## Pre-Requisites
 
-1. Install Docker (https://docs.docker.com/get-docker/)
+- Install Docker [**here**](https://docs.docker.com/get-docker/)
 
+## Clone repository
+
+- Clone the project by running:
+
+```
+git clone https://github.com/brandongallagher1999/1337x-Bot/
+```
 ## Create Configuration File
 
-1. Go to root folder and:
+- Go to root folder and:
 
 ```sh
-TOKEN="your token goes in this string"
+TOKEN="your bot token goes in this string"
 
 echo { '"token"' : '"'$TOKEN'"' } > config.json
 ```
 
 ## Container
 
-1. Go into root folder and run
+- Go into root folder and run
 
 ```
 docker-compose build
@@ -52,4 +57,4 @@ docker-compose up -d
 
 # Example / Usage
 
-![Example](/images/example.jpg?raw=true)
+![Image of the Bot Working](/images/example.jpg?raw=true)
