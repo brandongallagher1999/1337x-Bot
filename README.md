@@ -1,8 +1,6 @@
+![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)  
+# Unofficial Discord Bot  
 ![build](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/ci.yml/badge.svg) ![deployment](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/azure.yml/badge.svg)
-
-![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)
-
-# 1337x Discord Bot
 
 ## Description
 
@@ -15,13 +13,13 @@
 // To find a torrent
 .torrent <query>
 
-// For help
+// For a list of commands
 .help
 
-// To invite
+// To invite the Bot elsewhere
 .invite
 
-// To get the GitHub link
+// Get the GitHub link to the project
 .github
 ```
 
@@ -52,4 +50,4 @@ docker-compose up -d
 
 # Example / Usage
 
-![Example](/images/example.jpg?raw=true)
+![Image of the Bot Working](/images/example.jpg?raw=true)
