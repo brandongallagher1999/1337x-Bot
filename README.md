@@ -25,13 +25,13 @@
 
 # How to run using Docker
 
-## Docker
+## Pre-Requisites
 
-1. Install Docker (https://docs.docker.com/get-docker/)
+- Install Docker [**here**](https://docs.docker.com/get-docker/)
 
 ## Create Configuration File
 
-1. Go to root folder and:
+- Go to root folder and:
 
 ```sh
 TOKEN="your token goes in this string"
@@ -41,7 +41,7 @@ echo { '"token"' : '"'$TOKEN'"' } > config.json
 
 ## Container
 
-1. Go into root folder and run
+- Go into root folder and run
 
 ```
 docker-compose build
