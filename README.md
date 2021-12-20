@@ -29,12 +29,19 @@
 
 - Install Docker [**here**](https://docs.docker.com/get-docker/)
 
+## Clone repository
+
+- Clone the project by running:
+
+```
+git clone https://github.com/brandongallagher1999/1337x-Bot/
+```
 ## Create Configuration File
 
 - Go to root folder and:
 
 ```sh
-TOKEN="your token goes in this string"
+TOKEN="your bot token goes in this string"
 
 echo { '"token"' : '"'$TOKEN'"' } > config.json
 ```
