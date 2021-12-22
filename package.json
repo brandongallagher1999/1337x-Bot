@@ -4,7 +4,7 @@
   "description": "A Discord bot that uses the 1337x API to gather the most relevant torrents and then send it to the user.",
   "main": "index.ts",
   "scripts": {
-    "start" : "ts-node index.ts",
+    "start": "ts-node index.ts",
     "test": "jest",
     "compile": "tsc",
     "lint": "yarn prettier --write ."

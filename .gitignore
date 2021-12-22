@@ -2,3 +2,4 @@ config.json
 dist
 node_modules
 .vs
+config.production.json

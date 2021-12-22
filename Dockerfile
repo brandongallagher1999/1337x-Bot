@@ -1,4 +1,5 @@
-FROM node:latest
+#Version Locking Node
+FROM node:17.3
 
 COPY . .
 

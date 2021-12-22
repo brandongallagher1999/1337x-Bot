@@ -1,5 +1,7 @@
-![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)  
-# Unofficial Discord Bot  
+![1337x Logo](https://duckduckgo.com/i/e4d3d1a0.png)
+
+# Unofficial Discord Bot
+
 ![build](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/ci.yml/badge.svg) ![deployment](https://github.com/brandongallagher1999/1337x-Bot/actions/workflows/azure.yml/badge.svg)
 
 ## Description
@@ -36,6 +38,7 @@
 ```
 git clone https://github.com/brandongallagher1999/1337x-Bot/
 ```
+
 ## Create Configuration File
 
 - Go to root folder and:
