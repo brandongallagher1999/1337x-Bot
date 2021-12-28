@@ -6,8 +6,8 @@ torrentApi.enableProvider("1337x");
 
 /**
  * @description Searches 1337x for the torrent given a query string.
- * @param {string} torrent The torrent query string
- * @returns {Promise<FinalTorrent[]>} An array of the FinalTorrent interface type.
+ * @param torrent The torrent query string
+ * @returns An array of the FinalTorrent interface type.
  */
 const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
   try {
@@ -35,8 +35,8 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
 
 /**
  * @description Shortens the given magnet string into a URL, using the mgnet.me REST api
- * @param {string} magnet Magnet String
- * @returns {Promise<string>} shorturl string
+ * @param  magnet Magnet String
+ * @returns shorturl string
  */
 const shorten = async (magnet: string): Promise<string> => {
   try {
