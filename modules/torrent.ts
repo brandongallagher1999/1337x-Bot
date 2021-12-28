@@ -6,23 +6,29 @@ torrentApi.enableProvider("1337x");
 
 /**
  * @description Searches 1337x for the torrent given a query string.
- * @param {string} torrent The torrent query string
- * @returns {Promise<FinalTorrent[]>} An array of the FinalTorrent interface type.
+ * @param torrent The torrent query string
+ * @returns An array of the FinalTorrent interface type.
  */
 const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
   try {
     let torrents: FinalTorrent[] = await torrentApi.search(torrent);
     let finalTorrents: FinalTorrent[] = [];
+    let tasks: {() : Promise<string>;} [];
 
     for (let i = 0; i < 10; i++) {
       if (torrents[i] != null) {
         finalTorrents.push(torrents[i]);
+        tasks.push(async () => {
+          const longMagnet = await torrentApi.getMagnet(torrents[i]);
+          return await shorten(longMagnet);
+        });
       }
     }
 
+    const results = Promise.all(tasks);
+
     for (let i = 0; i < finalTorrents.length; i++) {
-      const longMagnet = await torrentApi.getMagnet(finalTorrents[i]);
-      finalTorrents[i].magnet = await shorten(longMagnet);
+      finalTorrents[i].magnet = results[i];
       finalTorrents[i].number = i + 1;
     }
 
@@ -35,8 +41,8 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
 
 /**
  * @description Shortens the given magnet string into a URL, using the mgnet.me REST api
- * @param {string} magnet Magnet String
- * @returns {Promise<string>} shorturl string
+ * @param magnet Magnet String
+ * @returns shorturl string
  */
 const shorten = async (magnet: string): Promise<string> => {
   try {
