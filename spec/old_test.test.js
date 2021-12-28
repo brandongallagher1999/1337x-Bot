@@ -3,6 +3,7 @@ const { grabTorrents } = require("../dist/modules/torrent");
 jest.setTimeout(1000000);
 
 const runTest = async () => {
+  console.time();
   let res = await grabTorrents("Inception"); //first object in response
   console.log(res);
   expect(Object.keys(res[0])).toStrictEqual([
@@ -16,6 +17,7 @@ const runTest = async () => {
     "magnet",
     "number",
   ]); //verifying schema
+  console.timeEnd();
 };
 
 describe("Testing torrent module", () => {
