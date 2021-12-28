@@ -3448,8 +3448,8 @@ toidentifier@1.0.0:
 
 "torrent-search-api@git+https://github.com/brandongallagher1999/torrent-search-api.git":
   version "2.1.4"
-  uid "7c3c403cb235e22143ada257e73c456f1d3faa0b"
-  resolved "git+https://github.com/brandongallagher1999/torrent-search-api.git#7c3c403cb235e22143ada257e73c456f1d3faa0b"
+  uid "661bc39b7b6e0e69156f1fdfde459e08ede29844"
+  resolved "git+https://github.com/brandongallagher1999/torrent-search-api.git#661bc39b7b6e0e69156f1fdfde459e08ede29844"
   dependencies:
     cloudscraper "^4.6.0"
     lodash "^4.17.15"
