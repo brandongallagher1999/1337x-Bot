@@ -13,22 +13,16 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
   try {
     let torrents: FinalTorrent[] = await torrentApi.search(torrent);
     let finalTorrents: FinalTorrent[] = [];
-    let tasks: {() : Promise<string>;} [];
 
     for (let i = 0; i < 10; i++) {
       if (torrents[i] != null) {
         finalTorrents.push(torrents[i]);
-        tasks.push(async () => {
-          const longMagnet = await torrentApi.getMagnet(torrents[i]);
-          return await shorten(longMagnet);
-        });
       }
     }
 
-    const results = Promise.all(tasks);
-
     for (let i = 0; i < finalTorrents.length; i++) {
-      finalTorrents[i].magnet = results[i];
+      const longMagnet = await torrentApi.getMagnet(finalTorrents[i]);
+      finalTorrents[i].magnet = await shorten(longMagnet);
       finalTorrents[i].number = i + 1;
     }
 
