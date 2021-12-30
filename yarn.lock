@@ -302,13 +302,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@discordjs/builders@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@discordjs/builders/-/builders-0.10.0.tgz#5a5d0927c84564e48093761a1b4d385c7148e4c8"
-  integrity sha512-fTB/f/4sPFhG5YWkVJPCC1WyIwUWPrgqyYn5nQtUwT77TUIhfus3VbI4OdIqht2Rneemmw8OjtAEBY3ENB0XWQ==
+"@discordjs/builders@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@discordjs/builders/-/builders-0.11.0.tgz#4102abe3e0cd093501f3f71931df43eb92f5b0cc"
+  integrity sha512-ZTB8yJdJKrKlq44dpWkNUrAtEJEq0gqpb7ASdv4vmq6/mZal5kOv312hQ56I/vxwMre+VIkoHquNUAfnTbiYtg==
   dependencies:
     "@sindresorhus/is" "^4.2.0"
-    discord-api-types "^0.25.2"
+    discord-api-types "^0.26.0"
     ts-mixer "^6.0.0"
     tslib "^2.3.1"
     zod "^3.11.6"
@@ -1266,22 +1266,22 @@ diff-sequences@^27.4.0:
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-27.4.0.tgz#d783920ad8d06ec718a060d00196dfef25b132a5"
   integrity sha512-YqiQzkrsmHMH5uuh8OdQFU9/ZpADnwzml8z0O5HvRNda+5UZsaX/xN+AAxfR2hWq1Y7HZnAzO9J5lJXOuDz2Ww==
 
-discord-api-types@^0.25.2:
-  version "0.25.2"
-  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.25.2.tgz#e50ed152e6d48fe7963f5de1002ca6f2df57c61b"
-  integrity sha512-O243LXxb5gLLxubu5zgoppYQuolapGVWPw3ll0acN0+O8TnPUE2kFp9Bt3sTRYodw8xFIknOVxjSeyWYBpVcEQ==
+discord-api-types@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.26.0.tgz#0134c6ee919035f2075ac1af9cdc0898b8dae71d"
+  integrity sha512-bnUltSHpQLzTVZTMjm+iNgVhAbtm5oAKHrhtiPaZoxprbm1UtuCZCsG0yXM61NamWfeSz7xnLvgFc50YzVJ5cQ==
 
-discord.js@^13.4.0:
-  version "13.4.0"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-13.4.0.tgz#04d0ddfa1b0b74f89a12dde706ada4b3dfba8504"
-  integrity sha512-ELjfNsGxoihpefQWWEegpk0QBserxvuYJlZAiOY5L+LjpQD30ccNSfcbt7HHDiKJB8o9T5CmMAvA3wvzIWNpKg==
+discord.js@^13.5.0:
+  version "13.5.0"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-13.5.0.tgz#f9ca9e629f2de0fb138e8c916fa93e40d70631f5"
+  integrity sha512-K+ZcB0f+wA1ZzDhz3hlaAi4Ap7jSvVEUZ+U29T4DMoiNNUv22F4vu1byrOq8GyyLLDFiZ3iSudea0MvSHu3fQA==
   dependencies:
-    "@discordjs/builders" "^0.10.0"
+    "@discordjs/builders" "^0.11.0"
     "@discordjs/collection" "^0.4.0"
     "@sapphire/async-queue" "^1.1.9"
     "@types/node-fetch" "^2.5.12"
     "@types/ws" "^8.2.2"
-    discord-api-types "^0.25.2"
+    discord-api-types "^0.26.0"
     form-data "^4.0.0"
     node-fetch "^2.6.1"
     ws "^8.4.0"
