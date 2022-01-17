@@ -22,7 +22,7 @@
     "jest": "^27.4.7",
     "@types/axios": "^0.14.0",
     "@types/torrent-search-api": "^2.0.0",
-    "@types/node": "^17.0.8",
+    "@types/node": "^17.0.9",
     "prettier": "2.5.1"
   },
   "optionalDependencies": {
