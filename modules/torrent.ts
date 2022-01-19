@@ -1,5 +1,5 @@
 import { FinalTorrent } from "./types";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 const urlencode = require("urlencode");
 const torrentApi = require("torrent-search-api");
 torrentApi.enableProvider("1337x");
@@ -21,7 +21,7 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
     }
 
     for (let i = 0; i < finalTorrents.length; i++) {
-      const longMagnet = await torrentApi.getMagnet(finalTorrents[i]);
+      const longMagnet: string = await torrentApi.getMagnet(finalTorrents[i]);
       finalTorrents[i].magnet = await shorten(longMagnet);
       finalTorrents[i].number = i + 1;
     }
@@ -41,7 +41,7 @@ const grabTorrents = async (torrent: string): Promise<FinalTorrent[]> => {
 const shorten = async (magnet: string): Promise<string> => {
   try {
     let encoded = urlencode(magnet);
-    const resp = await axios.get(
+    const resp: AxiosResponse = await axios.get(
       `http://mgnet.me/api/create?&format=json&opt=&m=${encoded}`
     );
     return resp.data.shorturl;
