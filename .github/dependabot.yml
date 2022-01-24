@@ -6,10 +6,3 @@ updates:
       interval: daily
     open-pull-requests-limit: 99
     target-branch: "master"
-    ignore:
-      - dependency-name: "@types/node"
-        versions:
-          - 15.0.0
-      - dependency-name: discord.js
-        versions:
-          - 12.5.2
