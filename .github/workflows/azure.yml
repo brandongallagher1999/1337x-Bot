@@ -10,9 +10,9 @@ jobs:
       - name: Login to SSH
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.host}}
-          username: ${{ secrets.username}}
-          key: ${{ secrets.key}}
+          host: ${{ secrets.host }}
+          username: ${{ secrets.username }}
+          key: ${{ secrets.key }}
           script: |
             sudo docker kill $(sudo docker ps -q)
             yes | sudo docker system prune -a
