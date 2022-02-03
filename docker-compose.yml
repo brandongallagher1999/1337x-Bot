@@ -2,9 +2,8 @@ version: "3.8"
 
 services:
   bot:
-    build:
-      context: "."
-      dockerfile: "Dockerfile"
+    build: "."
     ports:
       - "80:80"
     restart: unless-stopped
+    command: ["start"]

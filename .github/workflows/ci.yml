@@ -8,15 +8,11 @@ on:
 
 jobs:
   build:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
-        with:
-          node-version: "17"
-      - name: Install npm packages
-        run: yarn install
-      - name: Compile TypeScript Files
-        run: yarn run compile
-      - name: Run tests
-        run: yarn test
+      - name: Build Dockerfile
+        run: docker-compose build
+
+      - name: Run tests via Docker
+        run: docker-compose run bot test
