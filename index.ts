@@ -101,19 +101,6 @@ client.on("messageCreate", async (msg: Message) => {
         "``` .torrent <torrent name> // .torrent The Witcher 3 Wild Hunt \n .invite // Invite link to the Discord Bot```"
       );
       break;
-
-    case "invite":
-      msg.channel.send({
-        embeds: [
-          new MessageEmbed()
-            .setTitle("1337x Bot Invite")
-            .setAuthor(msg.author.username)
-            .setURL(
-              "https://discord.com/api/oauth2/authorize?client_id=733428046845050982&permissions=536921088&scope=bot"
-            ),
-        ],
-      });
-      break;
   }
 });
 
