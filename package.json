@@ -23,7 +23,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@types/axios": "^0.14.0",
-    "@types/jest": "^27.4.0",
+    "@types/jest": "^27.4.1",
     "@types/node": "^17.0.19",
     "@types/torrent-search-api": "^2.0.0",
     "babel-jest": "^27.5.1",
