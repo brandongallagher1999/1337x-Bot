@@ -73,9 +73,6 @@ client.on("messageCreate", async (msg: Message) => {
                   value:
                     "Torrent not found on 1337x, please refine your search.",
                 },
-              ])
-              .setFooter(Date()),
-          ],
         });
       }
 
