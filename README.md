@@ -12,16 +12,13 @@
 # Commands
 
 ```
-// To find a torrent
+// Search for a list of Torrents
 .torrent <query>
 
-// For a list of commands
+// Display all available commands
 .help
 
-// To invite the Bot elsewhere
-.invite
-
-// Get the GitHub link to the project
+// Get the GitHub link to this project
 .github
 ```
 
