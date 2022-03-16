@@ -28,7 +28,7 @@
     "@types/torrent-search-api": "^2.0.0",
     "babel-jest": "^27.5.1",
     "jest": "^27.5.1",
-    "prettier": "2.5.1"
+    "prettier": "2.6.0"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
