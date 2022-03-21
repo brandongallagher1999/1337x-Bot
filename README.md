@@ -8,6 +8,10 @@
 
 - Uses 1337x and Discord.JS (NodeJS) to create a Bot that allows users to search for content such as Movies, Games, etc. and returning a relevant
   list of Torrents with their respective shortened magnet URLs, Names, Seeders and File Sizes.
+  
+## UPCOMING!
+- Transforming entire bot into Golang for the benefit of concurrency.
+- The Torrent Scraper will run as an Express Microservice beside the bot.
 
 # Commands
 
