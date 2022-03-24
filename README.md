@@ -10,8 +10,7 @@
   list of Torrents with their respective shortened magnet URLs, Names, Seeders and File Sizes.
   
 ## UPCOMING!
-- Transforming entire bot into Golang for the benefit of concurrency.
-- The Torrent Scraper will run as an Express Microservice beside the bot.
+- MIGRATING TO https://github.com/brandongallagher1999/1337x-Bot-Go
 
 # Commands
 
