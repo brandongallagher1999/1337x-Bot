@@ -29,7 +29,7 @@ jobs:
 
       - name: Create and Publish Release
         run: gh release create ${{ github.run_number }} --generate-notes -t "Release v${{ github.run_number }}"
-        with:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
