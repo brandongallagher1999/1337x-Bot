@@ -29,6 +29,8 @@ jobs:
 
       - name: Create and Publish Release
         run: gh release create ${{ github.run_number }} --generate-notes -t "Release v${{ github.run_number }}"
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     name: Build Docker Image and deploy to Azure Linux VM
