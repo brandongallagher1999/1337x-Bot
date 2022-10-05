@@ -9,8 +9,8 @@
 - Uses 1337x and Discord.JS (NodeJS) to create a Bot that allows users to search for content such as Movies, Games, etc. and returning a relevant
   list of Torrents with their respective shortened magnet URLs, Names, Seeders and File Sizes.
   
-## UPCOMING!
-- MIGRATING TO https://github.com/brandongallagher1999/1337x-Bot-Go
+## NEW REPO!!
+- MIGRATED TO https://github.com/brandongallagher1999/1337x-Bot-Go
 
 # Commands
 
