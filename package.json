@@ -19,7 +19,7 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-typescript": "^7.21.0",
     "@types/axios": "^0.14.0",
